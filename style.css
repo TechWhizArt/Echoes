@@ -260,10 +260,20 @@ section {
         gap: 40px;
     }
 
-    .contact-content, .map{
-        width:100%;
-        background-color: rgb(63, 63, 63);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        height:auto;
+    .contact-content{
+        flex: 1;
+        min-width: ;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    } 
+    .map{
+        flex: 1;
+        min-width: 250px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 }

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .event-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 40px;
+            scrollbar-width: none;
+        }
+        .event-container::-webkit-scrollbar {
+            display: none;
+        }
+        .event-box {
+            min-width: 250px;
+            height: 300px;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: white;
+        }
+        .event-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .event-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .event-details {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .register-btn {
+            background-color: #ff4f70;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+            
+        }
+        .register-btn:hover {
+            background-color: #ff3050;
+        }
+        .arrow-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .arrow {
+            background-color: #ff4f70;
+            border: none;
+            color: white;
+            font-size: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        .arrow:hover {
+            background-color: #ff3050;
+        }
+    </style>
+</head>
+<body>
+    <div class="event-container" id="event-container">
+        <div class="event-box">
+            <div class="event-title">Event 1</div>
+            <div class="event-details">Details about the event...</div>
+            <button class="register-btn">Register Now</button>
+        </div>
+        <div class="event-box">
+            <div class="event-title">Event 2</div>
+            <div class="event-details">Details about the event...</div>
+            <button class="register-btn">Register Now</button>
+        </div>
+        <div class="event-box">
+            <div class="event-title">Event 3</div>
+            <div class="event-details">Details about the event...</div>
+            <button class="register-btn">Register Now</button>
+        </div>
+    </div>
+    <div class="arrow-container">
+        <button class="arrow" onclick="scrollLeft()">&#8592;</button>
+        <button class="arrow" onclick="scrollRight()">&#8594;</button>
+    </div>
+    <script>
+        function scrollLeft() {
+            document.getElementById('event-container').scrollBy({ left: -270, behavior: 'smooth' });
+        }
+        function scrollRight() {
+            document.getElementById('event-container').scrollBy({ left: 270, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

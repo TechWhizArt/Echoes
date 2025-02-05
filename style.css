@@ -174,10 +174,10 @@ section {
     transform: translateY(-50%);
     transition: color 0.3s ease;
 }
-
+/* 
 .move-arrow:hover {
-    /*  */
-}
+
+} */
 
 /* Left arrow */
 .left-arrow {

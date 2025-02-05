@@ -92,59 +92,86 @@ section {
 
 /* event section formatting */
 
+/* Events Section Styling */
 .events-section {
     text-align: center;
+    padding: 100px 0px;
+    background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+}
+
+.events-section h1 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.event-content-box {
+    position: relative;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    margin: 0;
 }
 
 .events-container {
     display: flex;
-    overflow-x: hidden;
+    overflow-x:visible;
+    overflow-x:scroll;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 20px;
     transition: transform 0.5s ease;
+}
+
+.event-box {
+    flex: 0 0 300px;
+    min-width: 300px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow:hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
 }
-.event-content-box {
-    position: relative;  /* Allows arrows to be positioned inside this container */
-    display: flex;
-    overflow-x: hidden;
-    width: 100%; /* Ensure the container takes the full width */
-}
-.event-box {
-    min-width: 300px;   /* Fixed width */
-    height: 400px;  /* Fixed height */
-    background-color: #fff;
-    margin: 15px 15px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-.event-box:hover{
+.event-box:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    
 }
-.event-box:hover .event-content {
-    opacity: 1;
+
+.event-image {
+    width: 100%;
+    height: 60%;
+    background-color: #292929; /* Placeholder for image */
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    opacity:1;
+}
+.event-image:hover{
+    opacity:0.8;
 }
 
 .event-content {
     padding: 20px;
-    opacity: 1;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
+    text-align: left;
 }
 
 .event-content h3 {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 10px;
+    color: #333;
 }
 
 .event-content p {
     font-size: 14px;
+    color: #666;
     margin-bottom: 20px;
-    opacity:0.9;
 }
 
 .register-btn {
@@ -154,42 +181,73 @@ section {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-    transition: background 0.3s ease;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
 }
 
 .register-btn:hover {
-    background-color: #7de282;
-}
-.register-btn:active{
     background-color: #45a049;
 }
 
 .move-arrow {
-    position: absolute;  /* Arrows will be positioned relative to the .event-content-box container */
+    position: absolute;
     top: 50%;
-    background: none;
+    transform: translateY(-30%);
+    background: rgba(255, 255, 255, 0);
     border: none;
-    font-size: 30px;
+    border-radius: 100%;
     cursor: pointer;
-    transform: translateY(-50%);
-    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+    transition: background 0.3s ease;
+    z-index:3;
 }
-/* 
+
 .move-arrow:hover {
+    opacity:0.5;
+}
 
-} */
-
-/* Left arrow */
 .left-arrow {
-    left: -25px; /* Position it to the left side */
+    left:0px;
 }
 
-/* Right arrow */
 .right-arrow {
-    right: -30px; /* Position it to the right side */
+    right:0px;
 }
 
 
+/* Hide scrollbar for a cleaner look */
+.events-container::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .event-box {
+        width: 80px;
+        height: 350px;
+    }
+
+    .move-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .left-arrow {
+        left: 0px;
+        
+        display:none;
+    }
+
+    .right-arrow {
+        right: 0px;
+        opacity:0;
+    }
+}
 
 
 

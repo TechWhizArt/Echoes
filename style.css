@@ -196,62 +196,34 @@ section {
 /* contact section styling */
 /* Contact Section Styling */
 #contact {
-    background: #777;
+    background: #333;
     min-height: 100vh;
     padding: 50px 20px;
     color: white;
 }
 
-.contact-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
 
 .contact-content {
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
-    justify-content: space-between;
+    flex-direction:row;
+    justify-content:space-evenly;
     margin-top: 30px;
 }
 
-.contact-form, .contact-details, .social-icons, .map {
-    flex: 1;
-    min-width: 250px;
-    background: rgba(255, 255, 255, 0.1);
+.contact-details, .map {
+    
+    width: 50%;
+    min-width:300px;
+ 
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
 }
 
-.contact-form h3, .contact-details h3, .social-icons h3, .map h3 {
+.contact-form h3, .contact-details h3, .contact-details h3, .map h3 {
     margin-bottom: 20px;
     font-size: 24px;
-}
-
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-.contact-form button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.contact-form button:hover {
-    background-color: #45a049;
 }
 
 .contact-details p {
@@ -259,22 +231,39 @@ section {
     font-size: 16px;
 }
 
-.social-icons .icons {
+.contact-details .icons {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     gap: 15px;
+    flex-direction:row;
+    flex-wrap:wrap;
+
 }
 
-.social-icons img {
+.contact-details img {
     width: 40px;
     height: 40px;
     transition: transform 0.3s ease;
 }
 
-.social-icons img:hover {
+.contact-details img:hover {
     transform: scale(1.2);
 }
 
 .map iframe {
     border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-content, .map{
+        width:100%;
+        background-color: rgb(63, 63, 63);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        height:auto;
+    }
 }

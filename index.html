@@ -14,12 +14,16 @@
 
 
     <div class="navbar">
-        <div class="logo">Echoes Club</div>
+        <div class="logo">
+            <a href="#home">
+                <img src="src/echoes_logo.jpg" alt="Echoes Club">
+            </a>
+        </div>
         <div class="nav-container">
             <span class="menu-icon" onclick="toggleMenu()">☰</span>
             <div class="nav-links" id="nav-links">
                 <a href="#home">Home</a>
-                <a href="#about">About</a>
+                <a href="#featured-event">Participate</a>
                 <a href="#events">Events</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#contact">Contact</a>
@@ -29,22 +33,57 @@
     
 
 
-    <section id="home"><h1>Home Section</h1></section>
+    <section id="home">
+        <div class="home-container">
+            <!-- Left Section: Quote and Content -->
+            <div class="home-content">
+                <h1 class="quote">"Create. Inspire. Connect."</h1>
+                <p class="description">
+                    Welcome to <strong>Echoes Club</strong>, where creativity meets innovation. 
+                    Join us to explore exciting events, connect with like-minded individuals, 
+                    and be part of a community that echoes your passion.
+                </p>
+                <button class="cta-btn" onclick="scrollToEvents()">Explore Events</button>
+            </div>
+    
+            <!-- Right Section: Background Image -->
+            <div class="home-image"></div>
+        </div>
+    </section>
 
 
 
 <!--Ongoing Event Section -->
 
 
-    <section id="about"><h1>About Section</h1></section>
+<section id="featured-event">
+    <h1>Ongoing Event</h1>
+    <div class="featured-container">
+        <!-- Poster on the left -->
+        <div class="poster">
+            <img src="src/demoposter.jpg" alt="Event Poster">
+        </div>
 
+        <!-- Event details on the right -->
+        <div class="event-details">
+            <h2>Event Name</h2>
+            <p class="event-date">Date: October 25, 2023</p>
+            <p class="event-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Quisque sit amet libero vel sapien dictum tempor. 
+                Integer nec turpis nec nisi tincidunt tincidunt.
+            </p>
+            <button class="register-btn">Register Now</button>
+        </div>
+    </div>
+</section>
 
     
 <!-- Events Section done -->
 
     
     <section id="events" class="events-section">
-        <h1>Upcoming Events</h1>
+        <h1>Featured Events</h1>
         <div class="event-content-box">
             <div class="events-container">
                 <!-- Event Boxes -->
@@ -156,7 +195,7 @@
                 
                     <h3>Connect with us..</h3>
                     <div class="icons">
-                        <a href="https://www.facebook.com/p/Echoes-MIET-61566290634655/"><img src="src/fb_color_upscayl_4x_digital-art-4x.png" alt="Facebook" style=""></a>
+                        <a href="https://www.facebook.com/p/Echoes-MIET-61566290634655/"><img src="src/fb_color_upscayl_4x_digital-art-4x.png" alt="Facebook"></a>
                         <a href="https://x.com/Echoes_MIET"><img src="src/X_icon_2.svg.png" alt="X"></a>
                         <a href="https://www.instagram.com/echoes_miet"><img src="src/insta_color_upscayl_4x_digital-art-4x.png" alt="Instagram"></a>
                         <a href="https://www.linkedin.com/company/echoes-miet/"><img src="src/linkedin_color_upscayl_4x_digital-art-4x.png" alt="LinkedIn"></a>

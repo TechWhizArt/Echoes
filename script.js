@@ -65,4 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-// disable button in small screens
+function scrollToEvents() {
+    const eventsSection = document.getElementById('events');
+    eventsSection.scrollIntoView({ behavior: 'smooth' });
+}

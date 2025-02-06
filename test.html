@@ -3,111 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Section</title>
+    <title>Looping Staggered Flip Honeycomb</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-        }
-        .event-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 20px;
-            padding: 40px;
-            scrollbar-width: none;
-        }
-        .event-container::-webkit-scrollbar {
-            display: none;
-        }
-        .event-box {
-            min-width: 250px;
-            height: 300px;
-            background: linear-gradient(135deg, #ff758c, #ff7eb3);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            color: white;
-        }
-        .event-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-        .event-title {
-            font-size: 20px;
-            font-weight: bold;
-        }
-        .event-details {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        .register-btn {
-            background-color: #ff4f70;
-            border: none;
-            color: white;
-            padding: 10px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background 0.3s;
-            
-        }
-        .register-btn:hover {
-            background-color: #ff3050;
-        }
-        .arrow-container {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
         }
-        .arrow {
-            background-color: #ff4f70;
-            border: none;
-            color: white;
-            font-size: 20px;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 50%;
-            transition: background 0.3s;
+
+        .honeycomb {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 columns */
+            gap: 10px;
+            padding: 20px;
         }
-        .arrow:hover {
-            background-color: #ff3050;
+
+        .honeycomb-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
+
+        .honeycomb-item {
+            width: 100px;
+            height: 200px;
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+            border-radius: 10px;
+            position: relative;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        /* Flip Animation */
+        @keyframes flip {
+            0% { transform: rotateY(0deg); }
+            10% { transform: rotateY(180deg); } /* Flip in the first 10% of its cycle */
+            50% { transform: rotateY(360deg); } /* Stay flipped for a while */
+            60% { transform: rotateY(0deg); } /* Flip back */
+            100% { transform: rotateY(0deg); } /* Reset and prepare for the next loop */
+        }
+
+        /* Staggered Flip with Loop */
+        .flip1 { animation: flip 10s linear infinite; animation-delay: 0s; }
+        .flip2 { animation: flip 10s linear infinite; animation-delay: 2s; }
+        .flip3 { animation: flip 10s linear infinite; animation-delay: 4s; }
+        .flip4 { animation: flip 10s linear infinite; animation-delay: 6s; }
+        .flip5 { animation: flip 10s linear infinite; animation-delay: 8s; }
+
+        /* Offset for Even Columns */
+        .column-2, .column-4 {
+            padding-top: 100px;
+        }
+
     </style>
 </head>
 <body>
-    <div class="event-container" id="event-container">
-        <div class="event-box">
-            <div class="event-title">Event 1</div>
-            <div class="event-details">Details about the event...</div>
-            <button class="register-btn">Register Now</button>
+
+    <div class="honeycomb">
+        <!-- Column 1 -->
+        <div class="honeycomb-column column-1">
+            <div class="honeycomb-item flip1">Image</div>  <!-- Flips first -->
+            <div class="honeycomb-item">Image</div>
+            <div class="honeycomb-item">Image</div>
         </div>
-        <div class="event-box">
-            <div class="event-title">Event 2</div>
-            <div class="event-details">Details about the event...</div>
-            <button class="register-btn">Register Now</button>
+
+        <!-- Column 2 -->
+        <div class="honeycomb-column column-2">
+            <div class="honeycomb-item">Image</div>
+            <div class="honeycomb-item flip2">Image</div>  <!-- Flips second -->
         </div>
-        <div class="event-box">
-            <div class="event-title">Event 3</div>
-            <div class="event-details">Details about the event...</div>
-            <button class="register-btn">Register Now</button>
+
+        <!-- Column 3 -->
+        <div class="honeycomb-column column-3">
+            <div class="honeycomb-item">Image</div>
+            <div class="honeycomb-item flip3">Image</div>  <!-- Flips third -->
+            <div class="honeycomb-item">Image</div>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="honeycomb-column column-4">
+            <div class="honeycomb-item flip4">Image</div>  <!-- Flips fourth -->
+            <div class="honeycomb-item">Image</div>
+        </div>
+
+        <!-- Column 5 -->
+        <div class="honeycomb-column column-5">
+            <div class="honeycomb-item">Image</div>
+            <div class="honeycomb-item flip5">Image</div>  <!-- Flips fifth -->
+            <div class="honeycomb-item">Image</div>
         </div>
     </div>
-    <div class="arrow-container">
-        <button class="arrow" onclick="scrollLeft()">&#8592;</button>
-        <button class="arrow" onclick="scrollRight()">&#8594;</button>
-    </div>
-    <script>
-        function scrollLeft() {
-            document.getElementById('event-container').scrollBy({ left: -270, behavior: 'smooth' });
-        }
-        function scrollRight() {
-            document.getElementById('event-container').scrollBy({ left: 270, behavior: 'smooth' });
-        }
-    </script>
+
 </body>
 </html>

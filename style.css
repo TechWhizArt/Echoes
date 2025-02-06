@@ -96,6 +96,42 @@ section {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Events Section Styling */
 .events-section {
     text-align: center;
@@ -258,10 +294,45 @@ section {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Contact Section Styling */
 #contact {
     background: #333;
-    min-height: 80vh;
+    min-height: auto;
     padding: 50px 20px;
     color: white;
 }
@@ -275,7 +346,7 @@ section {
 }
 
 .contact-details, .map {
-    width: 40%;
+    width: 60%;
     min-width:300px;
     padding: 20px;
     border-radius: 10px;
@@ -292,10 +363,6 @@ section {
     
 }
 
-
-.contact-details p:last-child {
-    margin-bottom: 20px;
-}
 .contact-details .icons {
     display: flex;
     justify-content: left;
@@ -329,11 +396,14 @@ section {
     .contact-details, .map{
         flex: 1;
         width:100%;
-        background: rgba(255, 255, 255, 0.1);
-        padding: 20px;
+        background: rgba(25, 25, 25, 0.1);
+        padding: 10px;
         border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         justify-items:center;
+    }
+    .map iframe{
+        width:100%;
+        height:300px;
     }
 }
 

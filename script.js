@@ -6,52 +6,63 @@ function toggleMenu() {
         navLinks.style.display = "flex";
     }
 }
-document.addEventListener("DOMContentLoaded", function() {
+
+document.addEventListener("DOMContentLoaded", function () {
     const moveLeft = document.getElementById('moveLeft');
     const moveRight = document.getElementById('moveRight');
     const eventsContainer = document.querySelector('.events-container');
     const eventBoxes = document.querySelectorAll('.event-box');
-    
+    const boxWidth = eventBoxes[0].offsetWidth + 20; // Width of one event box + gap
+    const visibleBoxes = 3; // Number of boxes visible at a time
     let offset = 0;
-    const boxWidth = 250; // Event box width
-    const totalWidth = boxWidth * eventBoxes.length; // Total width of all event boxes combined
 
-    // Initially hide the left arrow if we're at the first position
+    // Initially hide the left arrow
     moveLeft.style.display = 'none';
 
     // Move right
     moveRight.addEventListener('click', () => {
-        offset -= boxWidth; // Move the container by the width of the event box
-        if (offset <= -(totalWidth - (boxWidth * 3))) {
+        offset += boxWidth * visibleBoxes; // Move by the width of visible boxes
+        if (offset >= eventsContainer.scrollWidth - eventsContainer.clientWidth) {
+            offset = eventsContainer.scrollWidth - eventsContainer.clientWidth; // Limit the offset
             moveRight.style.display = 'none'; // Hide right arrow when end is reached
         }
         moveLeft.style.display = 'block'; // Show left arrow
-        eventsContainer.style.transform = `translateX(${offset}px)`;
+        eventsContainer.scrollTo({
+            left: offset,
+            behavior: 'smooth'
+        });
     });
 
     // Move left
     moveLeft.addEventListener('click', () => {
-        offset += boxWidth; // Move the container back by the width of the event box
-        if (offset >= 0) {
+        offset -= boxWidth * visibleBoxes; // Move back by the width of visible boxes
+        if (offset <= 0) {
+            offset = 0; // Limit the offset
             moveLeft.style.display = 'none'; // Hide left arrow when start is reached
         }
         moveRight.style.display = 'block'; // Show right arrow
-        eventsContainer.style.transform = `translateX(${offset}px)`;
+        eventsContainer.scrollTo({
+            left: offset,
+            behavior: 'smooth'
+        });
+    });
+
+    // Update arrow visibility on manual scroll
+    eventsContainer.addEventListener('scroll', () => {
+        offset = eventsContainer.scrollLeft;
+        if (offset <= 0) {
+            moveLeft.style.display = 'none';
+        } else {
+            moveLeft.style.display = 'block';
+        }
+        if (offset >= eventsContainer.scrollWidth - eventsContainer.clientWidth) {
+            moveRight.style.display = 'none';
+        } else {
+            moveRight.style.display = 'block';
+        }
     });
 });
 
 
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent form submission
 
-    // Get form values
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-
-    // Simulate form submission (you can replace this with an actual API call)
-    setTimeout(() => {
-        alert(`Thank you, ${name}! Your message has been sent.`);
-        document.getElementById("contactForm").reset(); // Clear the form
-    }, 1000);
-});
+// disable button in small screens

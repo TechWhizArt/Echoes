@@ -61,7 +61,7 @@ html{
         position: absolute;
         top: 50px;
         left: 0;
-        width: 100%;
+        max-width: 100%;
         height: auto;
         text-align: left;
         padding-top: 10px;
@@ -336,7 +336,7 @@ section {
 
     .poster {
         flex: 0 0 auto; /* Allow poster to resize */
-        width: 100%; /* Full width on smaller screens */
+        max-width: 100%; /* Full width on smaller screens */
         height: auto; /* Auto height to maintain aspect ratio */
     }
 

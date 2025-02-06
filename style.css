@@ -2,6 +2,7 @@
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
+    max-width:100%;
 }
 body { font-family: Arial, sans-serif; }
 
@@ -54,6 +55,9 @@ html{
 }
 
 @media screen and (max-width: 768px) {
+    .navbar{
+        max-width:100%;
+    }
     .nav-links {
         display: none;
         flex-direction: column;

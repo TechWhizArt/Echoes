@@ -69,3 +69,24 @@ function scrollToEvents() {
     const eventsSection = document.getElementById('events');
     eventsSection.scrollIntoView({ behavior: 'smooth' });
 }
+
+
+const flipSequence = [0, 4, 5, 1, 8, 12, 3, 9, 6, 10, 2, 11, 7];
+        const items = document.querySelectorAll('.honeycomb-item');
+        let currentIndex = 0;
+
+        function flipItem(index) {
+            items[index].classList.toggle('flipped');
+        }
+
+        function startFlipping() {
+            setInterval(() => {
+                if (currentIndex > 0) {
+                    flipItem(flipSequence[currentIndex - 1]); // Flip back the previous item
+                }
+                flipItem(flipSequence[currentIndex]); // Flip the current item
+                currentIndex = (currentIndex + 1) % flipSequence.length; // Move to the next index
+            }, 2000); // Change the interval to 2 seconds
+        }
+
+        startFlipping();

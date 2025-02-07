@@ -81,7 +81,7 @@ section {
 }
 #home { 
     background: #ffffff; 
-    min-height:100vh;
+    min-height:fit-content;
 }
 #about {
     background: #ffffff; 
@@ -91,7 +91,7 @@ section {
 }
 #gallery { 
     background: #ffffff;
-    min-height:50vh; 
+    min-height:fit-content; 
 
 }
 #contact { 

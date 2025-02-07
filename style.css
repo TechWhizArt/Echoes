@@ -870,3 +870,126 @@ section {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Style for the big div box */
+.big-box {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Add a colorful gradient overlay */
+  .big-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    opacity: 0.3;
+    z-index: -1;
+    border-radius: 20px;
+  }
+  
+  /* Hover effect for the big div box */
+  .big-box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Style for the info section */
+  .info-section {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .info-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+    animation: fadeInDown 1s ease-in-out;
+  }
+  
+  .info-section p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 25px;
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+  /* Style for the button */
+  .cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #ff6f61;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    animation: pulse 2s infinite;
+  }
+  
+  .cta-button:hover {
+    background-color: #ff3b2f;
+    transform: translateY(-5px);
+  }
+  
+  /* Keyframe animations */
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

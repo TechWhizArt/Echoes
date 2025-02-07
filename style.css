@@ -712,13 +712,17 @@ section {
 /* Responsive Layout for Smaller Screens */
 
 @media (max-width: 600px) {
+    #gallery{
+        padding:40px 0px;
+    }
     .honeycomb {
         grid-template-columns: 1fr; /* 1 column for very small screens */
         max-width: 100%; /* Take full width */
+        padding:50px 0px;
     }
 
     .honeycomb-item {
-        width: 80%; /* Adjust width to fit */
+        width: 100%; /* Adjust width to fit */
         height: 150px; /* Adjust height */
         font-size: 12px; /* Smaller font size */
     }
@@ -730,6 +734,12 @@ section {
     }
     .column-2, .column-4 {
         padding-top: 0px;
+    }
+    .column-1, .column-3, .column-5 {
+        height:50px;
+    }
+    .column-1 .honeycomb-item, .column-3 .honeycomb-item, .column-5 .honeycomb-item{
+        height:120px;
     }
       
 }

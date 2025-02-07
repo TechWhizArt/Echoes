@@ -71,22 +71,43 @@ function scrollToEvents() {
 }
 
 
-const flipSequence = [0, 4, 5, 1, 8, 12, 3, 9, 6, 10, 2, 11, 7];
-        const items = document.querySelectorAll('.honeycomb-item');
-        let currentIndex = 0;
 
-        function flipItem(index) {
-            items[index].classList.toggle('flipped');
-        }
 
-        function startFlipping() {
-            setInterval(() => {
-                if (currentIndex > 0) {
-                    flipItem(flipSequence[currentIndex - 1]); // Flip back the previous item
-                }
-                flipItem(flipSequence[currentIndex]); // Flip the current item
-                currentIndex = (currentIndex + 1) % flipSequence.length; // Move to the next index
-            }, 2000); // Change the interval to 2 seconds
-        }
 
-        startFlipping();
+
+
+
+
+
+
+
+// Function to flip an image
+function flipImage(imageId) {
+    const image = document.getElementById(imageId);
+    image.classList.toggle('flip');
+}
+
+// Function to unflip an image
+function unflipImage(imageId) {
+    const image = document.getElementById(imageId);
+    image.classList.remove('flip');
+}
+
+// Hardcore flipping pattern
+function startFlipping() {
+    setTimeout(() => flipImage('image1'), 0 * 1000); // 0s
+    setTimeout(() => flipImage('image10'), 2 * 1000); // 2s
+    setTimeout(() => flipImage('image6'), 4 * 1000); // 4s
+    setTimeout(() => { flipImage('image5'); unflipImage('image6'); }, 6 * 1000); // 6s
+    setTimeout(() => { flipImage('image11'); unflipImage('image10'); }, 8 * 1000); // 8s
+    setTimeout(() => flipImage('image4'), 10 * 1000); // 10s
+    setTimeout(() => { flipImage('image12'); unflipImage('image1'); }, 12 * 1000); // 12s
+    setTimeout(() => { unflipImage('image5'); unflipImage('image11'); }, 14 * 1000); // 14s
+    setTimeout(() => { unflipImage('image4'); unflipImage('image12'); }, 16 * 1000); // 16s
+
+    // Repeat the cycle every 18 seconds
+    setTimeout(startFlipping, 18 * 1000);
+}
+
+// Start the flipping pattern
+startFlipping();

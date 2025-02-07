@@ -90,10 +90,12 @@ section {
     background: #ffffff; 
 }
 #gallery { 
-    background: #ffffff; 
+    background: #ffffff;
+    min-height:50vh; 
+
 }
 #contact { 
-    background: #777;
+    background: #555;
     min-height: 50vh; 
 }
 
@@ -586,6 +588,127 @@ section {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fff;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.honeycomb {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 10px;
+    padding: 20px;
+}
+
+.honeycomb-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.honeycomb-item {
+    width: 100px;
+    height: 200px;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    border-radius: 10px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+/* Front and Back Faces */
+.honeycomb-item .front,
+.honeycomb-item .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden; /* Hide the back face when flipped */
+    border-radius: 10px;
+}
+
+.honeycomb-item .front {
+    background-color: #ccc;
+}
+
+.honeycomb-item .back {
+    background-color: #555;
+    color: #fff;
+    transform: rotateY(180deg); /* Initially hide the back face */
+}
+
+/* Flip Animation */
+.honeycomb-item.flip {
+    transform: rotateY(180deg);
+}
+
+/* Offset for Even Columns */
+.column-2, .column-4 {
+    padding-top: 100px;
+}
+
+
+
+/* Responsive Design */
+/* Responsive Layout for Smaller Screens */
+
+@media (max-width: 600px) {
+    .honeycomb {
+        grid-template-columns: 1fr; /* 1 column for very small screens */
+        max-width: 100%; /* Take full width */
+    }
+
+    .honeycomb-item {
+        width: 80%; /* Adjust width to fit */
+        height: 150px; /* Adjust height */
+        font-size: 12px; /* Smaller font size */
+    }
+    .honeycomb-column{
+        display:flex;
+        flex-direction:row;
+        gap:10px;
+        justify-content:center;
+    }
+    .column-2, .column-4 {
+        padding-top: 0px;
+    }
+      
+}
+/* Offset for Even Columns */
+.column-2, .column-4 {
+    padding-top: 100px;
+}
 
 
 

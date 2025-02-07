@@ -567,6 +567,34 @@ section {
 }
 
 
+/* Video Background Container */
+.video-background {
+    position: absolute; /* Position the video absolutely within the section */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Lower z-index to place it behind the content */
+    overflow: hidden; /* Ensure the video doesn't overflow */
+}
+
+/* Video Styling */
+#events-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the entire container */
+}
+
+/* Ensure the content is above the video */
+.events-section {
+    position: relative; /* Required for z-index to work */
+    z-index: 5; /* Higher z-index to place it above the video */
+}
+
+
+
+
+
 
 
 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Team Box */
+.team-box {
+    background: #f9f9f9;
+    border-radius: 20px;
+
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+
+}
+
+
+
+/* Circular Photo */
+.team-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 0px solid;
+}
+
+/* Name */
+.team-name {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Designation */
+.team-designation {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+/* Social Media Icons */
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icon {
+    color: #555;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #ff6f61;
+}
+    </style>
+</head>
+<body>
+    <div class="team-box">
+        <img src="src/hall4.jpeg" alt="Team Member" class="team-photo">
+        <h2 class="team-name">Kitty Cat</h2>
+        <p class="team-designation">Web Developer</p>
+        <div class="socials">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</body>
+</html>

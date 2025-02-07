@@ -144,6 +144,8 @@ section {
     font-weight: bold;
     color: #333;
     margin-bottom: 20px;
+    animation:fadeInDown 1s ease-in-out;
+
 }
 
 .home-content .description {
@@ -244,7 +246,7 @@ section {
 
 
 
-/* Featured Event Section */
+/* Featured Event Section OR Ongoing events section */
 #featured-event {
     padding: 50px 20px;
     background-color: #f9f9f9;
@@ -352,11 +354,17 @@ section {
         text-align: justify; /* Center align text on smaller screens */
     }
 }
-
-/* Soft Flashy Background Animation */
+/* Soft Flashy Background Animation with Pastel Colors */
 #featured-event {
     padding: 50px 20px;
-    background: linear-gradient(135deg, #ffffff, #8a8a8a, #fbc2eb, #a6c1ee, #fbc2eb, #ff9a9e);
+    background: linear-gradient(
+        135deg,
+        #fbc2eb, /* Pastel Pink */
+        #a6c1ee, /* Pastel Blue */
+        #a780d7, /* Pastel Green */
+        #ffd8a8, /* Pastel Orange */
+        #fbc2eb  /* Pastel Pink */
+    );
     background-size: 400% 400%; /* Larger background size for smooth animation */
     animation: gradientAnimation 10s ease infinite; /* Soft animation */
 }
@@ -372,9 +380,6 @@ section {
         background-position: 0% 50%; /* End position */
     }
 }
-
-
-
 
 
 
@@ -885,111 +890,168 @@ section {
 
 
 
+
+
+
+
+
+
+
+
+
+/* Style for  Members section */
 /* Style for the big div box */
 .big-box {
     width: 90%;
     max-width: 1200px;
     margin: 50px auto;
     padding: 30px;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    position: relative;
-    overflow: hidden;
   }
   
-  /* Add a colorful gradient overlay */
-  .big-box::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-    opacity: 0.3;
-    z-index: -1;
-    border-radius: 20px;
-  }
-  
-  /* Hover effect for the big div box */
   .big-box:hover {
     transform: scale(1.02);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
   }
   
-  /* Style for the info section */
-  .info-section {
-    text-align: center;
-    position: relative;
-    z-index: 1;
+  /* Left Section (Team Members and Auditions) */
+  .left-section {
+    width: 66.66%; /* 2/3 of the box */
+    padding-right: 20px;
   }
   
-  .info-section h2 {
+  .left-section h2 {
     font-size: 32px;
     margin-bottom: 20px;
     color: #333;
     animation: fadeInDown 1s ease-in-out;
   }
   
-  .info-section p {
+  .justified-text {
+    text-align: justify;
     font-size: 18px;
     line-height: 1.8;
     color: #555;
     margin-bottom: 25px;
-    animation: fadeInUp 1s ease-in-out;
   }
   
   /* Style for the button */
   .cta-button {
     display: inline-block;
+    height:50px;
     padding: 12px 30px;
     font-size: 18px;
     color: #fff;
     background-color: #ff6f61;
-    border-radius: 30px;
+    border-radius: 15px;
     text-decoration: none;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
-    animation: pulse 2s infinite;
+    margin-bottom: 25px;
   }
   
   .cta-button:hover {
     background-color: #ff3b2f;
-    transform: translateY(-5px);
+    transform: translateY(-3px);
   }
   
-  /* Keyframe animations */
-  @keyframes fadeInDown {
-    0% {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* Auditions Section */
+  .auditions-section {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom:20px;
   }
   
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .auditions-section h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
   }
   
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
+  .auditions-message {
+    font-size: 18px;
+    color: #ff6f61;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  /* Right Section (Social Media Boxes) */
+ /* Right Section (Social Media Icons) */
+.right-section {
+    width: 100%; /* Full width on smaller screens */
+    max-width: 300px; /* Limit width on larger screens */
+    display: flex;
+    flex-direction: column; /* Arrange in a column */
+    gap: 15px;
+    margin-top: 20px; /* Add some spacing on smaller screens */
+  }
+  
+  .social-box {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--color); /* Use the pastel color */
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+  
+  .social-box:hover {
+    transform: translateX(10px); /* Move slightly to the right on hover */
+    background-color: #fff; /* Change to white on hover */
+  }
+  
+  .social-box a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff; /* Default text color */
+    font-size: 16px; /* Smaller font size for mobile */
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .social-box:hover a {
+    color: var(--color); /* Change text color to the pastel shade on hover */
+  }
+  
+  .social-box i {
+    font-size: 20px; /* Smaller icon size for mobile */
+    margin-right: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .social-box:hover i {
+    transform: scale(1.2); /* Scale up the icon on hover */
+  }
+  
+  .right-section h4{
+
+    padding-left:6px;
+  }
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+
+    .big-box {
+      flex-direction: column; /* Arrange in a row on larger screens */
     }
-    50% {
-      transform: scale(1.05);
+    .social-box a {
+      font-size: 18px; /* Larger font size for desktop */
     }
-    100% {
-      transform: scale(1);
+    .left-section{
+        width:100%;
+        padding:0;
+    }
+    .right-section {
+      max-width: 100%; /* Full width on smaller screens */
+    }
+    .social-box i {
+      font-size: 24px; /* Larger icon size for desktop */
     }
   }

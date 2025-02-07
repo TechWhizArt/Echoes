@@ -76,7 +76,7 @@ html{
 /* Sections */
 section {
     min-height: auto;
-    padding: 100px 20px;
+    padding: 80px 20px;
     scroll-margin-top: 60px;
 }
 #home { 
@@ -212,6 +212,9 @@ section {
 
     .home-content .description {
         font-size: 16px;
+    }
+    section{
+        padding: 50px 20px;
     }
 }
 
@@ -647,7 +650,7 @@ section {
 
 .gallery-header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 0px;
 }
 .honeycomb {
     display: grid;
@@ -905,7 +908,7 @@ section {
     width: 90%;
     max-width: 1200px;
     margin: 50px auto;
-    padding: 30px;
+    padding:5px 30px;
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -928,6 +931,7 @@ section {
   
   .left-section h2 {
     font-size: 32px;
+    margin-top:20px;
     margin-bottom: 20px;
     color: #333;
     animation: fadeInDown 1s ease-in-out;

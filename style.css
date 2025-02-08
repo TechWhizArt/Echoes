@@ -923,6 +923,7 @@ section {
 .big-box {
     width: 90%;
     max-width: 1200px;
+    min-height:fit-content;
     margin: 50px auto;
     padding:5px 30px;
     background-color: rgba(255, 255, 255, 0.9);
@@ -1038,40 +1039,43 @@ section {
   }
   
   .social-box:hover a {
-    color: var(--color); /* Change text color to the pastel shade on hover */
+    color: var(--color); 
   }
   
   .social-box i {
-    font-size: 20px; /* Smaller icon size for mobile */
+    font-size: 20px;
     margin-right: 10px;
+    
     transition: transform 0.3s ease-in-out;
   }
   
   .social-box:hover i {
-    transform: scale(1.2); /* Scale up the icon on hover */
+    transform: scale(1.2);
   }
   
   .right-section h4{
-
     padding-left:6px;
   }
+
   /* Responsive Adjustments */
+
   @media (max-width: 768px) {
 
     .big-box {
-      flex-direction: column; /* Arrange in a row on larger screens */
+      flex-direction: column; 
     }
     .social-box a {
-      font-size: 18px; /* Larger font size for desktop */
+      font-size: 18px; 
     }
     .left-section{
         width:100%;
         padding:0;
     }
     .right-section {
-      max-width: 100%; /* Full width on smaller screens */
+      max-width: 100%; 
     }
     .social-box i {
-      font-size: 24px; /* Larger icon size for desktop */
+      font-size: 24px; 
+      
     }
   }

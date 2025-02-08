@@ -171,20 +171,6 @@ section {
     background-color: #45a049;
 }
 
-/* Right Section: Background Image */
-.home-image {
-    flex: 1;
-    height: 100vh;
-    background-image: url('path-to-your-background-image.jpg'); /* Add your image path here */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40%; /* Image covers less than half of the screen */
-    z-index: 1;
-}
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
@@ -321,7 +307,7 @@ section {
     line-height: 1.6;
 }
 
-.event-details .register-btn {
+.event-details .viewdetails-btn {
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -332,7 +318,7 @@ section {
     transition: background-color 0.3s ease;
 }
 
-.event-details .register-btn:hover {
+.event-details .viewdetails-btn:hover {
     background-color: #45a049;
 }
 
@@ -362,14 +348,14 @@ section {
     padding: 50px 20px;
     background: linear-gradient(
         135deg,
-        #fbc2eb, /* Pastel Pink */
-        #a6c1ee, /* Pastel Blue */
-        #a780d7, /* Pastel Green */
-        #ffd8a8, /* Pastel Orange */
-        #fbc2eb  /* Pastel Pink */
+        #a3d9ff, /* Pastel Pink */
+        #fb5d5dbc, /* Pastel Blue */
+        #d1aeff, /* Pastel Green */
+        #ffe7c9, /* Pastel Orange */
+        #acacac  /* Pastel Pink */
     );
     background-size: 400% 400%; /* Larger background size for smooth animation */
-    animation: gradientAnimation 10s ease infinite; /* Soft animation */
+    animation: gradientAnimation 5s ease infinite; /* Soft animation */
 }
 
 @keyframes gradientAnimation {
@@ -447,15 +433,18 @@ section {
 }
 
 .event-box {
-    flex: 0 0 300px;
-    min-width: 300px;
-    height: 400px;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    flex: 0 0 280px;
+    min-width: 270px;
+    height: 500px;
+    background-color: #fdfdfd;
+    border-radius: 17px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     overflow:hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
 }
 
 .event-box:hover {
@@ -464,15 +453,20 @@ section {
     
 }
 
-.event-image {
-    width: 100%;
-    height: 60%;
-    background-color: #292929; /* Placeholder for image */
-    background-size: cover;
-    background-position: center;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    opacity:1;
+.event-box .event-image{
+    width:260px;
+    height:260px;
+
+    background-color: black;
+    margin:10px;
+    border-radius:10px 10px 0px 0px;
+}
+.event-image img{
+    width:100%;
+    height:100%;
+    border-radius:10px;
+    object-fit:cover;
+
 }
 .event-image:hover{
     opacity:0.8;
@@ -493,10 +487,20 @@ section {
     font-size: 14px;
     color: #666;
     margin-bottom: 20px;
+    text-align: justify;
 }
 
-.register-btn {
-    background-color: #4CAF50;
+
+.event-box .date{
+    font-size:10px;
+}
+
+.viewdetails-btn {
+    margin:20px 20px;
+    width:240px;
+    background-color: #8a8a8a;
+    position:absolute;
+    bottom:0px;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -506,9 +510,24 @@ section {
     transition: background-color 0.3s ease;
 }
 
-.register-btn:hover {
-    background-color: #45a049;
+.viewdetails-btn:hover {
+    background-color: #5e5e5e;
 }
+
+
+/* .register-btn{
+    background-color: #4CAF50;
+}
+
+.register-btn:hover {
+    background-color: #397f3d;
+} */
+
+.register-btn:hover {
+    background-color: #8a8a8a;
+}
+
+
 
 .move-arrow {
     position: absolute;
@@ -548,10 +567,7 @@ section {
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
-    .event-box {
-        width: 80px;
-        height: 350px;
-    }
+  
 
     .move-arrow {
         width: 40px;

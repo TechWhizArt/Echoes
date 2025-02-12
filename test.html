@@ -3,188 +3,680 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardcore Flipping Pattern</title>
-    <style>
-        body {
+    <title>ehehehe</title>
+    <style>/* General Styles */
+        .boxes-group {
             display: flex;
+            flex-wrap: wrap; /* Allow wrapping to the next line */
+            gap: 20px;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .honeycomb {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr); /* 5 columns */
-            gap: 10px;
+            flex-direction:column;
             padding: 20px;
         }
-
-        .honeycomb-column {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        
+        .team-box {
+            background: #ececec;
+            border-radius: 15px;
+            padding: 20px 0px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+            margin: 20px auto;
+            flex: 1 1 calc(50% - 40px); /* Two boxes per row on desktop */
+            box-sizing: border-box;
         }
-
-        .honeycomb-item {
-            width: 100px;
-            height: 200px;
-            background-color: #ccc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 14px;
-            font-weight: bold;
+        
+        /* Mobile View: One box per row */
+        @media (max-width: 768px) {
+            .team-box {
+                flex: 1 1 100%; /* One box per row on mobile */
+            }
+        }
+        
+        .team-box h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 1.1em;
             color: #555;
-            border-radius: 10px;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 0.8s;
+            margin: 20px 0 10px;
+            text-align: center;
+        }
+        
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .leader{
+            justify-self: center;
+            
         }
 
-        /* Front and Back Faces */
-        .honeycomb-item .front,
-        .honeycomb-item .back {
+
+        /* Member Card Styles */
+        .member-card {
+            background: white;
+            border-radius: 10px;
+            width: 150px;
+            height: 250px;
+            perspective: 1000px; /* For 3D effect */
+            position: relative;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.6s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .head {
+            width: 200px;
+        }
+        
+        /* Front and Back of the Card */
+        .card-front,
+        .card-back {
             position: absolute;
             width: 100%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            backface-visibility: hidden; /* Hide the back face when flipped */
+            backface-visibility: hidden; /* Hide the back side when not rotated */
             border-radius: 10px;
+            padding: 15px;
+            box-sizing: border-box;
         }
-
-        .honeycomb-item .front {
-            background-color: #ccc;
+        
+        .card-front {
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-
-        .honeycomb-item .back {
-            background-color: #555;
-            color: #fff;
-            transform: rotateY(180deg); /* Initially hide the back face */
+        
+        .card-back {
+            background: #2575fc;
+            color: white;
+            transform: rotateY(180deg); /* Initially hidden */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-
-        /* Flip Animation */
-        .honeycomb-item.flip {
-            transform: rotateY(180deg);
+        
+        /* Member Photo */
+        .member-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
         }
-
-        /* Offset for Even Columns */
-        .column-2, .column-4 {
-            padding-top: 100px;
+        
+        /* Member Name and Post */
+        .member-name {
+            font-size: 1.2em;
+            color: #333;
+            margin: 5px 0;
+        }
+        
+        .card-back .member-name {
+            color: white;
+        }
+        
+        .member-post {
+            font-size: 0.9em;
+            color: #777;
+            margin: 5px 0;
+        }
+        
+        .card-back .member-info {
+            font-size: 0.9em;
+            color: white;
+            margin: 10px 0;
+        }
+        
+        /* Social Links */
+        .social-links {
+            margin-top: 10px;
+        }
+        
+        .social-icon {
+            text-decoration: none;
+            color: #555;
+            margin: 0 5px;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: #2575fc;
+        }
+        
+        .card-back .social-icon {
+            color: white;
+        }
+        
+        .card-back .social-icon:hover {
+            color: #ffcc00;
         }
     </style>
 </head>
 <body>
 
-    <div class="honeycomb">
-        <!-- Column 1 -->
-        <div class="honeycomb-column column-1">
-            <div class="honeycomb-item" id="image1">
-                <div class="front">Image 1</div>
-                <div class="back">Back 1</div>
-            </div>
-            <div class="honeycomb-item" id="image2">
-                <div class="front">Image 2</div>
-                <div class="back">Back 2</div>
-            </div>
-            <div class="honeycomb-item" id="image3">
-                <div class="front">Image 3</div>
-                <div class="back">Back 3</div>
+    <h1><center>MEET THE MEMBERS OF ECHOES</center></h1>
+    <br><br>
+    <div class="member-card head leader" data-flipped="false">
+        <div class="card-front">
+            <img src="src/disha.jpeg" alt="Name 2" class="member-photo">
+            <h3 class="member-name">Name 2</h3>
+            <p class="member-post">Creative Director</p>
+            <div class="social-links">
+                <a href="#" class="social-icon">📸</a>
+                <a href="#" class="social-icon">🔗</a>
+                <a href="#" class="social-icon">🖌️</a>
             </div>
         </div>
-
-        <!-- Column 2 -->
-        <div class="honeycomb-column column-2">
-            <div class="honeycomb-item" id="image4">
-                <div class="front">Image 4</div>
-                <div class="back">Back 4</div>
-            </div>
-            <div class="honeycomb-item" id="image5">
-                <div class="front">Image 5</div>
-                <div class="back">Back 5</div>
-            </div>
-        </div>
-
-        <!-- Column 3 -->
-        <div class="honeycomb-column column-3">
-            <div class="honeycomb-item" id="image6">
-                <div class="front">Image 6</div>
-                <div class="back">Back 6</div>
-            </div>
-            <div class="honeycomb-item" id="image7">
-                <div class="front">Image 7</div>
-                <div class="back">Back 7</div>
-            </div>
-            <div class="honeycomb-item" id="image8">
-                <div class="front">Image 8</div>
-                <div class="back">Back 8</div>
-            </div>
-        </div>
-
-        <!-- Column 4 -->
-        <div class="honeycomb-column column-4">
-            <div class="honeycomb-item" id="image9">
-                <div class="front">Image 9</div>
-                <div class="back">Back 9</div>
-            </div>
-            <div class="honeycomb-item" id="image10">
-                <div class="front">Image 10</div>
-                <div class="back">Back 10</div>
-            </div>
-        </div>
-
-        <!-- Column 5 -->
-        <div class="honeycomb-column column-5">
-            <div class="honeycomb-item" id="image11">
-                <div class="front">Image 11</div>
-                <div class="back">Back 11</div>
-            </div>
-            <div class="honeycomb-item" id="image12">
-                <div class="front">Image 12</div>
-                <div class="back">Back 12</div>
-            </div>
-            <div class="honeycomb-item" id="image13">
-                <div class="front">Image 13</div>
-                <div class="back">Back 13</div>
+        <div class="card-back">
+            <h3 class="member-name">Name 2</h3>
+            <p class="member-info">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon">📸</a>
+                <a href="#" class="social-icon">🔗</a>
+                <a href="#" class="social-icon">🖌️</a>
             </div>
         </div>
     </div>
+<br><br>
+<h2><center>Our respected Teams</center></h2>
+    <div class = "boxes-group">
+
+        
+        <div class="team-box">
+            <h2>Graphic Team</h2>
+        
+            <!-- Heads Section -->
+            <h3 class="section-title">Heads (Third Year)</h3>
+            <div class="team-members">
+                <!-- Head 1 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+                        <h3 class="member-name">Name 1</h3>
+                        <p class="member-post">Graphic Design Lead</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 1</h3>
+                        <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+        
+                <!-- Head 2 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 2" class="member-photo">
+                        <h3 class="member-name">Name 2</h3>
+                        <p class="member-post">Creative Director</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 2</h3>
+                        <p class="member-info">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Volunteers Section -->
+            <h3 class="section-title">Volunteers (Second Year)</h3>
+            <div class="team-members">
+                <!-- Volunteer 1 -->
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+        
+                <!-- Volunteer 2 -->
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div><div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="team-box">
+            <h2>Graphic Team</h2>
+        
+            <!-- Heads Section -->
+            <h3 class="section-title">Heads (Third Year)</h3>
+            <div class="team-members">
+                <!-- Head 1 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+                        <h3 class="member-name">Name 1</h3>
+                        <p class="member-post">Graphic Design Lead</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 1</h3>
+                        <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+        
+                <!-- Head 2 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 2" class="member-photo">
+                        <h3 class="member-name">Name 2</h3>
+                        <p class="member-post">Creative Director</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 2</h3>
+                        <p class="member-info">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Volunteers Section -->
+            <h3 class="section-title">Volunteers (Second Year)</h3>
+            <div class="team-members">
+                <!-- Volunteer 1 -->
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+        
+                <!-- Volunteer 2 -->
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div><div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-box">
+            <h2>Graphic Team</h2>
+        
+            <!-- Heads Section -->
+            <h3 class="section-title">Heads (Third Year)</h3>
+            <div class="team-members">
+                <!-- Head 1 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+                        <h3 class="member-name">Name 1</h3>
+                        <p class="member-post">Graphic Design Lead</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 1</h3>
+                        <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+        
+                <!-- Head 2 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 2" class="member-photo">
+                        <h3 class="member-name">Name 2</h3>
+                        <p class="member-post">Creative Director</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 2</h3>
+                        <p class="member-info">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Volunteers Section -->
+            <h3 class="section-title">Volunteers (Second Year)</h3>
+            <div class="team-members">
+                <!-- Volunteer 1 -->
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+        
+                <!-- Volunteer 2 -->
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div><div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="team-box">
+            <h2>Graphic Team</h2>
+        
+            <!-- Heads Section -->
+            <h3 class="section-title">Heads (Third Year)</h3>
+            <div class="team-members">
+                <!-- Head 1 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+                        <h3 class="member-name">Name 1</h3>
+                        <p class="member-post">Graphic Design Lead</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 1</h3>
+                        <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+        
+                <!-- Head 2 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 2" class="member-photo">
+                        <h3 class="member-name">Name 2</h3>
+                        <p class="member-post">Creative Director</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 2</h3>
+                        <p class="member-info">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Volunteers Section -->
+            <h3 class="section-title">Volunteers (Second Year)</h3>
+            <div class="team-members">
+                <!-- Volunteer 1 -->
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+        
+                <!-- Volunteer 2 -->
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div><div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-post">Graphic Designer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     <script>
-        // Function to flip an image
-        function flipImage(imageId) {
-            const image = document.getElementById(imageId);
-            image.classList.toggle('flip');
-        }
+        document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".member-card");
 
-        // Function to unflip an image
-        function unflipImage(imageId) {
-            const image = document.getElementById(imageId);
-            image.classList.remove('flip');
-        }
+    cards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+            if (card.getAttribute("data-flipped") === "false") {
+                card.style.transform = "rotateY(180deg)";
+                card.setAttribute("data-flipped", "true");
+            }
+        });
 
-        // Hardcore flipping pattern
-        function startFlipping() {
-            setTimeout(() => flipImage('image1'), 0 * 1000); // 0s
-            setTimeout(() => flipImage('image10'), 2 * 1000); // 2s
-            setTimeout(() => flipImage('image6'), 4 * 1000); // 4s
-            setTimeout(() => { flipImage('image5'); unflipImage('image6'); }, 6 * 1000); // 6s
-            setTimeout(() => { flipImage('image11'); unflipImage('image10'); }, 8 * 1000); // 8s
-            setTimeout(() => flipImage('image4'), 10 * 1000); // 10s
-            setTimeout(() => { flipImage('image12'); unflipImage('image1'); }, 12 * 1000); // 12s
-            setTimeout(() => { unflipImage('image5'); unflipImage('image11'); }, 14 * 1000); // 14s
-            setTimeout(() => { unflipImage('image4'); unflipImage('image12'); }, 16 * 1000); // 16s
-
-            // Repeat the cycle every 18 seconds
-            setTimeout(startFlipping, 18 * 1000);
-        }
-
-        // Start the flipping pattern
-        startFlipping();
+        card.addEventListener("mouseleave", () => {
+            if (card.getAttribute("data-flipped") === "true") {
+                card.style.transform = "rotateY(0deg)";
+                card.setAttribute("data-flipped", "false");
+            }
+        });
+    });
+});
     </script>
 </body>
 </html>

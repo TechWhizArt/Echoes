@@ -1057,6 +1057,23 @@ section {
     padding-left:6px;
   }
 
+
+/* Social Media Icons */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icon {
+    color: #8f0000;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #ff6f61;
+}
   /* Responsive Adjustments */
 
   @media (max-width: 768px) {

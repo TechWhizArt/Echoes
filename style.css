@@ -1058,22 +1058,6 @@ section {
   }
 
 
-/* Social Media Icons */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.social-icon {
-    color: #8f0000;
-    font-size: 20px;
-    transition: color 0.3s ease;
-}
-
-.social-icon:hover {
-    color: #ff6f61;
-}
   /* Responsive Adjustments */
 
   @media (max-width: 768px) {
@@ -1228,7 +1212,7 @@ section {
     box-sizing: border-box;
 }
 .leader .card-front, .card-back{
-    background: #ffcc00;
+    background: #ffcc00b0;
     color: white;
     width:300px;
 }
@@ -1311,10 +1295,27 @@ section {
     transition: color 0.3s ease;
 }
 
-.social-icon:hover {
-    color: #2575fc;
+
+
+
+/* Social Media Icons */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index:2000;
 }
 
+.social-icon {
+    color: #000000;
+    font-size: 20px;
+    transition: color 0.3s ease;
+  
+}
+
+.social-icon:hover {
+    color: #ff6f61;
+}
 .card-back .social-icon {
     color: white;
 }

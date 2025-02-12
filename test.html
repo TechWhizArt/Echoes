@@ -4,166 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ehehehe</title>
-    <style>/* General Styles */
-        .boxes-group {
-            display: flex;
-            flex-wrap: wrap; /* Allow wrapping to the next line */
-            gap: 20px;
-            justify-content: center;
-            flex-direction:column;
-            padding: 20px;
-        }
-        
-        .team-box {
-            background: #ececec;
-            border-radius: 15px;
-            padding: 20px 0px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 700px;
-            margin: 20px auto;
-            flex: 1 1 calc(50% - 40px); /* Two boxes per row on desktop */
-            box-sizing: border-box;
-        }
-        
-        /* Mobile View: One box per row */
-        @media (max-width: 768px) {
-            .team-box {
-                flex: 1 1 100%; /* One box per row on mobile */
-            }
-        }
-        
-        .team-box h2 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        
-        .section-title {
-            font-size: 1.1em;
-            color: #555;
-            margin: 20px 0 10px;
-            text-align: center;
-        }
-        
-        .team-members {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        
-        .leader{
-            justify-self: center;
-            
-        }
-
-
-        /* Member Card Styles */
-        .member-card {
-            background: white;
-            border-radius: 10px;
-            width: 150px;
-            height: 250px;
-            perspective: 1000px; /* For 3D effect */
-            position: relative;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.6s ease;
-            transform-style: preserve-3d;
-        }
-        
-        .head {
-            width: 200px;
-        }
-        
-        /* Front and Back of the Card */
-        .card-front,
-        .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden; /* Hide the back side when not rotated */
-            border-radius: 10px;
-            padding: 15px;
-            box-sizing: border-box;
-        }
-        
-        .card-front {
-            background: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .card-back {
-            background: #2575fc;
-            color: white;
-            transform: rotateY(180deg); /* Initially hidden */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        /* Member Photo */
-        .member-photo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-        
-        /* Member Name and Post */
-        .member-name {
-            font-size: 1.2em;
-            color: #333;
-            margin: 5px 0;
-        }
-        
-        .card-back .member-name {
-            color: white;
-        }
-        
-        .member-post {
-            font-size: 0.9em;
-            color: #777;
-            margin: 5px 0;
-        }
-        
-        .card-back .member-info {
-            font-size: 0.9em;
-            color: white;
-            margin: 10px 0;
-        }
-        
-        /* Social Links */
-        .social-links {
-            margin-top: 10px;
-        }
-        
-        .social-icon {
-            text-decoration: none;
-            color: #555;
-            margin: 0 5px;
-            font-size: 1.2em;
-            transition: color 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            color: #2575fc;
-        }
-        
-        .card-back .social-icon {
-            color: white;
-        }
-        
-        .card-back .social-icon:hover {
-            color: #ffcc00;
-        }
-    </style>
+    
 </head>
 <body>
 
@@ -194,19 +35,18 @@
 <h2><center>Our respected Teams</center></h2>
     <div class = "boxes-group">
 
-        
         <div class="team-box">
-            <h2>Graphic Team</h2>
+            <h2>Event Management and Coordination Team</h2>
         
             <!-- Heads Section -->
-            <h3 class="section-title">Heads (Third Year)</h3>
+            <h3 class="section-title"></h3>
             <div class="team-members">
                 <!-- Head 1 -->
                 <div class="member-card head" data-flipped="false">
                     <div class="card-front">
                         <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
-                        <h3 class="member-name">Name 1</h3>
-                        <p class="member-post">Graphic Design Lead</p>
+                        <h3 class="member-name">Nikhil</h3>
+                        <p class="member-post">Head</p>
                         <div class="social-links">
                             <a href="#" class="social-icon">📸</a>
                             <a href="#" class="social-icon">🔗</a>
@@ -214,40 +54,22 @@
                         </div>
                     </div>
                     <div class="card-back">
-                        <h3 class="member-name">Name 1</h3>
+                        <h3 class="member-name">Nikhil</h3>
                         <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-        
-                <!-- Head 2 -->
-                <div class="member-card head" data-flipped="false">
-                    <div class="card-front">
-                        <img src="src/disha.jpeg" alt="Name 2" class="member-photo">
-                        <h3 class="member-name">Name 2</h3>
-                        <p class="member-post">Creative Director</p>
-                        <div class="social-links">
-                            <a href="#" class="social-icon">📸</a>
-                            <a href="#" class="social-icon">🔗</a>
-                            <a href="#" class="social-icon">🖌️</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3 class="member-name">Name 2</h3>
-                        <p class="member-info">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                 </div>
             </div>
         
             <!-- Volunteers Section -->
-            <h3 class="section-title">Volunteers (Second Year)</h3>
+            <h3 class="section-title">Volunteers</h3>
             <div class="team-members">
                 <!-- Volunteer 1 -->
                 <div class="member-card" data-flipped="false">
                     <div class="card-front">
                         <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
 
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-post">Graphic Designer</p>
+                        <h3 class="member-name">Chirag Sharma</h3>
+                        <p class="member-post">Designation</p>
                         <div class="social-links">
                             <a href="#" class="social-icon">📸</a>
                             <a href="#" class="social-icon">🔗</a>
@@ -255,6 +77,80 @@
                     </div>
                     <div class="card-back">
                         <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+        
+                <!-- Volunteer 2 -->
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Vartika Jain</h3>
+                        <p class="member-post">Designation</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Name 3</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+ 
+            </div>
+        </div>
+
+
+
+            <!-- team_2 -->
+
+
+        <div class="team-box">
+            <h2>Technocal Team</h2>
+        
+            <!-- Heads Section -->
+            <h3 class="section-title"></h3>
+            <div class="team-members">
+                <!-- Head 1 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+                        <h3 class="member-name">Aakash Soam</h3>
+                        <p class="member-post">Head</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Aakash Soam</h3>
+                        <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+        
+            
+            </div>
+        
+            <!-- Volunteers Section -->
+            <h3 class="section-title">Volunteers</h3>
+            <div class="team-members">
+                <!-- Volunteer 1 -->
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Mayank Tamta</h3>
+                        <p class="member-post">Designation</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Mayank Tamta</h3>
                         <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     </div>
                 </div>
@@ -275,54 +171,27 @@
                         <h3 class="member-name">Name 3</h3>
                         <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     </div>
-                </div>
-                <div class="member-card" data-flipped="false">
-                    <div class="card-front">
-                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
-
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-post">Graphic Designer</p>
-                        <div class="social-links">
-                            <a href="#" class="social-icon">📸</a>
-                            <a href="#" class="social-icon">🔗</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    </div>
-                </div><div class="member-card" data-flipped="false">
-                    <div class="card-front">
-                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
-
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-post">Graphic Designer</p>
-                        <div class="social-links">
-                            <a href="#" class="social-icon">📸</a>
-                            <a href="#" class="social-icon">🔗</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    </div>
+                
                 </div>
             </div>
         </div>
 
 
+        <!-- team-3 -->
+
+
         <div class="team-box">
-            <h2>Graphic Team</h2>
+            <h2>Graphics Team</h2>
         
             <!-- Heads Section -->
-            <h3 class="section-title">Heads (Third Year)</h3>
+            <h3 class="section-title"></h3>
             <div class="team-members">
                 <!-- Head 1 -->
                 <div class="member-card head" data-flipped="false">
                     <div class="card-front">
                         <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
-                        <h3 class="member-name">Name 1</h3>
-                        <p class="member-post">Graphic Design Lead</p>
+                        <h3 class="member-name">Pradeep Kumar</h3>
+                        <p class="member-post">Head</p>
                         <div class="social-links">
                             <a href="#" class="social-icon">📸</a>
                             <a href="#" class="social-icon">🔗</a>
@@ -339,8 +208,8 @@
                 <div class="member-card head" data-flipped="false">
                     <div class="card-front">
                         <img src="src/disha.jpeg" alt="Name 2" class="member-photo">
-                        <h3 class="member-name">Name 2</h3>
-                        <p class="member-post">Creative Director</p>
+                        <h3 class="member-name">Saumya Goel</h3>
+                        <p class="member-post">Co-Head</p>
                         <div class="social-links">
                             <a href="#" class="social-icon">📸</a>
                             <a href="#" class="social-icon">🔗</a>
@@ -355,14 +224,14 @@
             </div>
         
             <!-- Volunteers Section -->
-            <h3 class="section-title">Volunteers (Second Year)</h3>
+            <h3 class="section-title">Volunteers</h3>
             <div class="team-members">
                 <!-- Volunteer 1 -->
                 <div class="member-card" data-flipped="false">
                     <div class="card-front">
                         <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
 
-                        <h3 class="member-name">Name 3</h3>
+                        <h3 class="member-name">Krishna Bhatnagar</h3>
                         <p class="member-post">Graphic Designer</p>
                         <div class="social-links">
                             <a href="#" class="social-icon">📸</a>
@@ -370,7 +239,7 @@
                         </div>
                     </div>
                     <div class="card-back">
-                        <h3 class="member-name">Name 3</h3>
+                        <h3 class="member-name">Krishna Bhatnagar</h3>
                         <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     </div>
                 </div>
@@ -380,7 +249,7 @@
                     <div class="card-front">
                         <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
 
-                        <h3 class="member-name">Name 3</h3>
+                        <h3 class="member-name">Aditi Tomar</h3>
                         <p class="member-post">Graphic Designer</p>
                         <div class="social-links">
                             <a href="#" class="social-icon">📸</a>
@@ -388,56 +257,27 @@
                         </div>
                     </div>
                     <div class="card-back">
-                        <h3 class="member-name">Name 3</h3>
+                        <h3 class="member-name">Aditi Tomar</h3>
                         <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     </div>
-                </div>
-                <div class="member-card" data-flipped="false">
-                    <div class="card-front">
-                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
-
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-post">Graphic Designer</p>
-                        <div class="social-links">
-                            <a href="#" class="social-icon">📸</a>
-                            <a href="#" class="social-icon">🔗</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    </div>
-                </div><div class="member-card" data-flipped="false">
-                    <div class="card-front">
-                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
-
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-post">Graphic Designer</p>
-                        <div class="social-links">
-                            <a href="#" class="social-icon">📸</a>
-                            <a href="#" class="social-icon">🔗</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    </div>
+                
                 </div>
             </div>
         </div>
 
+
+        <!-- team_4 -->
         <div class="team-box">
-            <h2>Graphic Team</h2>
+            <h2>Media Team</h2>
         
             <!-- Heads Section -->
-            <h3 class="section-title">Heads (Third Year)</h3>
             <div class="team-members">
                 <!-- Head 1 -->
                 <div class="member-card head" data-flipped="false">
                     <div class="card-front">
                         <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
-                        <h3 class="member-name">Name 1</h3>
-                        <p class="member-post">Graphic Design Lead</p>
+                        <h3 class="member-name">Niyati Mittal</h3>
+                        <p class="member-post">Head</p>
                         <div class="social-links">
                             <a href="#" class="social-icon">📸</a>
                             <a href="#" class="social-icon">🔗</a>
@@ -445,7 +285,79 @@
                         </div>
                     </div>
                     <div class="card-back">
-                        <h3 class="member-name">Name 1</h3>
+                        <h3 class="member-name">Niyati Mittal</h3>
+                        <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+        
+                
+            </div>
+        
+            <!-- Volunteers Section -->
+            <h3 class="section-title">Volunteers</h3>
+            <div class="team-members">
+                <!-- Volunteer 1 -->
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Harshit Rana</h3>
+                        <p class="member-post">Designation</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Harshit Rana</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+        
+                <!-- Volunteer 2 -->
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Yogesh Kumar</h3>
+                        <p class="member-post">Designation</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Yogesh Kumar</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- team-5 -->
+        <div class="team-box">
+            <h2>External Outreach & PR Team</h2>
+        
+            <!-- Heads Section -->
+            <h3 class="section-title"></h3>
+            <div class="team-members">
+                <!-- Head 1 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+                        <h3 class="member-name">Paras Tomar</h3>
+                        <p class="member-post">Head</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Paras Tomar</h3>
                         <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
@@ -454,8 +366,8 @@
                 <div class="member-card head" data-flipped="false">
                     <div class="card-front">
                         <img src="src/disha.jpeg" alt="Name 2" class="member-photo">
-                        <h3 class="member-name">Name 2</h3>
-                        <p class="member-post">Creative Director</p>
+                        <h3 class="member-name">Akshita Chauhan</h3>
+                        <p class="member-post">Co-Head</p>
                         <div class="social-links">
                             <a href="#" class="social-icon">📸</a>
                             <a href="#" class="social-icon">🔗</a>
@@ -463,96 +375,51 @@
                         </div>
                     </div>
                     <div class="card-back">
-                        <h3 class="member-name">Name 2</h3>
+                        <h3 class="member-name">Akshita Chauhan</h3>
                         <p class="member-info">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                 </div>
             </div>
         
             <!-- Volunteers Section -->
-            <h3 class="section-title">Volunteers (Second Year)</h3>
+            <h3 class="section-title">Volunteer</h3>
             <div class="team-members">
                 <!-- Volunteer 1 -->
                 <div class="member-card" data-flipped="false">
                     <div class="card-front">
                         <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
 
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-post">Graphic Designer</p>
+                        <h3 class="member-name">Aditya Yadav</h3>
+                        <p class="member-post">Designation</p>
                         <div class="social-links">
                             <a href="#" class="social-icon">📸</a>
                             <a href="#" class="social-icon">🔗</a>
                         </div>
                     </div>
                     <div class="card-back">
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    </div>
-                </div>
-        
-                <!-- Volunteer 2 -->
-                <div class="member-card" data-flipped="false">
-                    <div class="card-front">
-                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
-
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-post">Graphic Designer</p>
-                        <div class="social-links">
-                            <a href="#" class="social-icon">📸</a>
-                            <a href="#" class="social-icon">🔗</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    </div>
-                </div>
-                <div class="member-card" data-flipped="false">
-                    <div class="card-front">
-                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
-
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-post">Graphic Designer</p>
-                        <div class="social-links">
-                            <a href="#" class="social-icon">📸</a>
-                            <a href="#" class="social-icon">🔗</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    </div>
-                </div><div class="member-card" data-flipped="false">
-                    <div class="card-front">
-                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
-
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-post">Graphic Designer</p>
-                        <div class="social-links">
-                            <a href="#" class="social-icon">📸</a>
-                            <a href="#" class="social-icon">🔗</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3 class="member-name">Name 3</h3>
+                        <h3 class="member-name">Aditya Yadav</h3>
                         <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     </div>
                 </div>
             </div>
         </div>
 
+
+
+        <!-- Team-7 -->
+         
         <div class="team-box">
-            <h2>Graphic Team</h2>
+            <h2>Content Team</h2>
         
             <!-- Heads Section -->
-            <h3 class="section-title">Heads (Third Year)</h3>
+            <h3 class="section-title"></h3>
             <div class="team-members">
                 <!-- Head 1 -->
                 <div class="member-card head" data-flipped="false">
                     <div class="card-front">
                         <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
-                        <h3 class="member-name">Name 1</h3>
-                        <p class="member-post">Graphic Design Lead</p>
+                        <h3 class="member-name">Vedangi Sharma</h3>
+                        <p class="member-post">Head</p>
                         <div class="social-links">
                             <a href="#" class="social-icon">📸</a>
                             <a href="#" class="social-icon">🔗</a>
@@ -560,17 +427,16 @@
                         </div>
                     </div>
                     <div class="card-back">
-                        <h3 class="member-name">Name 1</h3>
+                        <h3 class="member-name">Vedangi Sharma</h3>
                         <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
-        
                 <!-- Head 2 -->
                 <div class="member-card head" data-flipped="false">
                     <div class="card-front">
-                        <img src="src/disha.jpeg" alt="Name 2" class="member-photo">
-                        <h3 class="member-name">Name 2</h3>
-                        <p class="member-post">Creative Director</p>
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+                        <h3 class="member-name">Tanishka Singhal</h3>
+                        <p class="member-post">Head</p>
                         <div class="social-links">
                             <a href="#" class="social-icon">📸</a>
                             <a href="#" class="social-icon">🔗</a>
@@ -578,29 +444,30 @@
                         </div>
                     </div>
                     <div class="card-back">
-                        <h3 class="member-name">Name 2</h3>
-                        <p class="member-info">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <h3 class="member-name">Tanishka Singhal</h3>
+                        <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
+            
             </div>
         
             <!-- Volunteers Section -->
-            <h3 class="section-title">Volunteers (Second Year)</h3>
+            <h3 class="section-title">Volunteers</h3>
             <div class="team-members">
                 <!-- Volunteer 1 -->
                 <div class="member-card" data-flipped="false">
                     <div class="card-front">
                         <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
 
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-post">Graphic Designer</p>
+                        <h3 class="member-name">Vishesh</h3>
+                        <p class="member-post">Designation</p>
                         <div class="social-links">
                             <a href="#" class="social-icon">📸</a>
                             <a href="#" class="social-icon">🔗</a>
                         </div>
                     </div>
                     <div class="card-back">
-                        <h3 class="member-name">Name 3</h3>
+                        <h3 class="member-name">Vishesh</h3>
                         <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     </div>
                 </div>
@@ -610,51 +477,271 @@
                     <div class="card-front">
                         <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
 
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-post">Graphic Designer</p>
+                        <h3 class="member-name">Geetanshi Goel</h3>
+                        <p class="member-post">Designation</p>
                         <div class="social-links">
                             <a href="#" class="social-icon">📸</a>
                             <a href="#" class="social-icon">🔗</a>
                         </div>
                     </div>
                     <div class="card-back">
-                        <h3 class="member-name">Name 3</h3>
+                        <h3 class="member-name">Geetanshi Goel</h3>
                         <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     </div>
+                
                 </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Team-6 -->
+
+        <div class="team-box">
+            <h2>Internal Outreach Team</h2>
+        
+            <!-- Heads Section -->
+            <h3 class="section-title"></h3>
+            <div class="team-members">
+                <!-- Head 1 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+                        <h3 class="member-name">Vanshika Chaudhary</h3>
+                        <p class="member-post">Head</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Vanshika Chaudhary</h3>
+                        <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+                <!-- Head 2 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+                        <h3 class="member-name">Utkarsh Kushwara</h3>
+                        <p class="member-post">Co-Head</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Aakash Soam</h3>
+                        <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            
+            </div>
+        
+        </div>
+
+
+
+        <!-- Team-8 -->
+         
+        <div class="team-box">
+            <h2>Web Developmant Team</h2>
+        
+            <!-- Volunteers Section -->
+            <h3 class="section-title">Volunteers</h3>
+            <div class="team-members">
+                <!-- Volunteer 1 -->
                 <div class="member-card" data-flipped="false">
                     <div class="card-front">
                         <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
 
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-post">Graphic Designer</p>
+                        <h3 class="member-name">Niharika</h3>
+                        <p class="member-post">Web Developer</p>
                         <div class="social-links">
                             <a href="#" class="social-icon">📸</a>
                             <a href="#" class="social-icon">🔗</a>
                         </div>
                     </div>
                     <div class="card-back">
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    </div>
-                </div><div class="member-card" data-flipped="false">
-                    <div class="card-front">
-                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
-
-                        <h3 class="member-name">Name 3</h3>
-                        <p class="member-post">Graphic Designer</p>
-                        <div class="social-links">
-                            <a href="#" class="social-icon">📸</a>
-                            <a href="#" class="social-icon">🔗</a>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3 class="member-name">Name 3</h3>
+                        <h3 class="member-name">Niharika</h3>
                         <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     </div>
                 </div>
+        
+                <!-- Volunteer 2 -->
+                <div class="member-card" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+
+                        <h3 class="member-name">Apurva Kaushik</h3>
+                        <p class="member-post">Web Developer</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Apurva Kaushik</h3>
+                        <p class="member-info">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                
+                </div>
             </div>
         </div>
+
+
+
+        <!-- Team-9 -->
+         
+        <div class="team-box">
+            <h2>Social Media & Creative Team</h2>
+        
+            <!-- Heads Section -->
+            <h3 class="section-title"></h3>
+            <div class="team-members">
+                <!-- Head 1 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+                        <h3 class="member-name">Radhika Poonia</h3>
+                        <p class="member-post">Head</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Radhika Poonia</h3>
+                        <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+                <!-- Head 2 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+                        <h3 class="member-name">Priyanshu Goel</h3>
+                        <p class="member-post">Co-Head</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Priyanshu Goel</h3>
+                        <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            
+            </div>
+
+        </div>
+
+
+
+        <!-- Team-9 -->
+                
+        <div class="team-box">
+            <h2>Anchoring Team</h2>
+
+            <!-- Heads Section -->
+            <h3 class="section-title"></h3>
+            <div class="team-members">
+                <!-- Head 1 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+                        <h3 class="member-name">Shagun Sharma</h3>
+                        <p class="member-post">Head</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Shagun Sharma</h3>
+                        <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+                <!-- Head 2 -->
+                <div class="member-card head" data-flipped="false">
+                    <div class="card-front">
+                        <img src="src/disha.jpeg" alt="Name 1" class="member-photo">
+                        <h3 class="member-name">Riya Chaudhary</h3>
+                        <p class="member-post">Co-Head</p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">📸</a>
+                            <a href="#" class="social-icon">🔗</a>
+                            <a href="#" class="social-icon">🖌️</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3 class="member-name">Riya Chaudhary</h3>
+                        <p class="member-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            
+            </div>
+
+        </div>
+
+    </div>
+
+    <h2><center>Faculty Support</center></h2>
+
+    <div class="faculty">
+            <div class="member-card head leader" data-flipped="false">
+            <div class="card-front">
+                <img src="src/disha.jpeg" alt="Name 2" class="member-photo">
+                <h3 class="member-name">Prof. (Dr.) Vikas Shrivantava</h3>
+                <p class="member-post">Convener</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">📸</a>
+                    <a href="#" class="social-icon">🔗</a>
+                    <a href="#" class="social-icon">🖌️</a>
+                </div>
+            </div>
+            <div class="card-back">
+                <h3 class="member-name">Prof. (Dr.) Vikas Shrivantava</h3>
+                <p class="member-info">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">📸</a>
+                    <a href="#" class="social-icon">🔗</a>
+                    <a href="#" class="social-icon">🖌️</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="member-card head leader" data-flipped="false">
+            <div class="card-front">
+                <img src="src/disha.jpeg" alt="Name 2" class="member-photo">
+                <h3 class="member-name">Ms. Priyanka Dhanraj</h3>
+                <p class="member-post">Creative Director</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">📸</a>
+                    <a href="#" class="social-icon">🔗</a>
+                    <a href="#" class="social-icon">🖌️</a>
+                </div>
+            </div>
+            <div class="card-back">
+                <h3 class="member-name">Ms. Priyanka Dhanraj</h3>
+                <p class="member-info">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon"></a>
+                    <a href="#" class="social-icon"></a>
+                    <a href="#" class="social-icon">🔗</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 
 
     <script>

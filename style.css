@@ -1325,3 +1325,16 @@ section {
     color: #ffcc00;
 }
 
+#memberheading{
+    text-align:center;
+    margin:10px;
+    font-size:36px;
+    color:#4f4f4f;
+}
+
+.membersubheading{
+    text-align:center;
+    margin:0px;
+    font-size:24px;
+    color:#7b6060;
+}

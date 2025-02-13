@@ -1179,10 +1179,7 @@ section {
 }
 
 
-.leader{
-    justify-self: center;
-    
-}
+
 
 /* Member Card Styles */
 .member-card {
@@ -1215,9 +1212,12 @@ section {
     background: #ffcc00b0;
     color: white;
     width:300px;
+
 }
 
-
+.leader{
+    
+}
 
 .card-front {
     background: white;

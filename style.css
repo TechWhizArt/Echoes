@@ -1215,9 +1215,6 @@ section {
 
 }
 
-.leader{
-    
-}
 
 .card-front {
     background: white;
@@ -1284,9 +1281,7 @@ section {
 }
 
 /* Social Links */
-.social-links {
-    margin-top: 10px;
-}
+
 
 .social-icon {
     text-decoration: none;
@@ -1296,16 +1291,7 @@ section {
     transition: color 0.3s ease;
 }
 
-
-
-
 /* Social Media Icons */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    z-index:2000;
-}
 
 .social-icon {
     color: #000000;
@@ -1314,16 +1300,10 @@ section {
   
 }
 
-.social-icon:hover {
-    color: #ff6f61;
-}
-.card-back .social-icon {
+.card-back .social-links .social-icon {
     color: white;
 }
 
-.card-back .social-icon:hover {
-    color: #ffcc00;
-}
 
 #memberheading{
     text-align:center;

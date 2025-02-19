@@ -72,7 +72,7 @@ html{
     .menu-icon { display: block; }
     .logo img{
         padding-left:10px;
-        width:75px;
+        width: 80px;
         height:auto;
     }
 }
@@ -134,13 +134,13 @@ section {
     justify-content: space-between;
     max-width: 1200px;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 10px;
 }
 
 /* Left Section: Quote and Content */
 .home-content {
     flex: 1;
-    max-width: 60%;
+    max-width: 50%;
     text-align: left;
 }
 
@@ -182,6 +182,7 @@ section {
     #home {
         background-image: url('assets/phone.png');
         background-size: cover;
+
     }
     .home-container {
         flex-direction: column;
@@ -191,6 +192,7 @@ section {
     .home-content {
         max-width: 100%;
         padding: 20px;
+        
     }
 
     .home-image {
@@ -926,7 +928,7 @@ section {
 /* Style for  Members section */
 /* Style for the big div box */
 .big-box {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     min-height:fit-content;
     margin: 50px auto;
@@ -971,10 +973,10 @@ section {
   .cta-button {
     display: inline-block;
     height:50px;
-    padding: 12px 30px;
+    padding: 15px 30px;
     font-size: 18px;
     color: #fff;
-    background-color: #ff6f61;
+    background-color: #9886c8;
     border-radius: 15px;
     text-decoration: none;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -988,7 +990,7 @@ section {
   
   /* Auditions Section */
   .auditions-section {
-    background-color: #f8f8f8;
+    background-color: #e5f3f6;
     padding: 20px;
     border-radius: 15px;
     text-align: center;
@@ -1003,7 +1005,7 @@ section {
   
   .auditions-message {
     font-size: 18px;
-    color: #ff6f61;
+    color: #e70000cd;
     font-weight: bold;
     margin: 0;
   }
@@ -1083,6 +1085,9 @@ section {
     .social-box i {
       font-size: 24px; 
       
+    }
+    .cta-button{
+        padding: 12px 30px;
     }
   }
 

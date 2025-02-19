@@ -70,6 +70,11 @@ html{
     }
     .nav-links a { display: block; padding: 15px; }
     .menu-icon { display: block; }
+    .logo img{
+        padding-left:10px;
+        width:60px;
+        height:auto;
+    }
 }
 
 

@@ -117,7 +117,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('src/Untitled design.png');
+    background-image: url('assets/Untitled design.png');
     background-size: cover;
     overflow:hidden;
     position: relative;
@@ -175,7 +175,7 @@ section {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     #home {
-        background-image: url('src/phone.png');
+        background-image: url('assets/phone.png');
         background-size: cover;
     }
     .home-container {

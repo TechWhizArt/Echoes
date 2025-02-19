@@ -25,7 +25,7 @@ html{
 }
 .logo img{
     padding-left:10px;
-    width:90px;
+    width:80px;
     height:auto;
 }
 .nav-container {
@@ -72,7 +72,7 @@ html{
     .menu-icon { display: block; }
     .logo img{
         padding-left:10px;
-        width:60px;
+        width:75px;
         height:auto;
     }
 }

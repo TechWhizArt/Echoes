@@ -48,4 +48,12 @@ We look forward to seeing you at our next event!
 
 - Lastly, tell me to update the website on google after you update the **MAIN** branch only.
 
-- 
+**files you can edit-
+- index.html
+- test.html
+- style.css
+- script.js
+- memberphoto
+- assets
+- members.html
+

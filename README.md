@@ -28,7 +28,8 @@ We look forward to seeing you at our next event!
 
 
 
-## Instructions for the contributors of this repository:-
+
+# *Instructions for the contributors of this repository:-*
 
 - do not delete or change any file related to firebase as they are crucial for website hosting.
 
@@ -38,13 +39,13 @@ We look forward to seeing you at our next event!
 
 - in short donot delete any of these files, and make another branch to work to prevent acidents, you can use test.html to test code snippets.
 
-- add all the page related files in the public folder, test.html file is just a demo so it is located outside, it is important for the firebase to work correctly.
+- add all the page related files in the public folder, it is important for the firebase to work correctly, test.html file is just a demo so it is located outside.
 
 - the changes you make will not be updated on the official website even if you update the main branch as i am the owner of the website on google so i have to deploy it using firebase first, so tell me after you do the necessary changes.
 
 - you can update the main branch if you are 100% sure of your changes.
 
-- You can also update this reaadme file about echoes as currently it is just ai generated text.
+- You can also update this readme file about echoes as currently it is just ai generated text.
 
 - Lastly, tell me to update the website on google after you update the **MAIN** branch only.
 

@@ -803,6 +803,100 @@ section {
 
 
 
+
+
+
+
+
+
+
+
+/* styling for contributors section */
+
+
+
+#contributors{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    background-color: #ffffff;
+    overflow: hidden;
+    justify-content: center;
+    margin:8px;
+}
+
+.slider {
+    width: 90%;
+    max-width: 1200px;
+    overflow: hidden;
+    position: relative;
+}
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.card {
+    flex: 0 0 calc(50% - 20px); /* 2 cards per row on small screens */
+    height: 300px;
+    margin: 10px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+}
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+.card-content {
+    padding: 10px;
+}
+.card h3 {
+    margin: 5px 0;
+    font-size: 20px;
+}
+.card p {
+    margin: 3px 0;
+    font-size: 14px;
+    color: #555;
+}
+.quote {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    color: #777;
+    margin-top: 5px;
+}
+
+
+@media (max-width: 480px) {
+    .card {
+        flex: 0 0 calc(100% - 20px); /* 1 cards per row on small screens */
+        height:400px;
+    }
+    .card img {
+        height: 280px;
+    }
+
+}
+
+
+@media (min-width: 768px) {
+    .card {
+        flex: 0 0 calc(25% - 20px); /* 4 cards per row on larger screens */
+    }
+}
+
+
+
+
+
+
+
+
+
 /* Contact Section Styling */
 #contact {
     background: #333;

@@ -111,3 +111,49 @@ function startFlipping() {
 
 // Start the flipping pattern
 startFlipping();
+
+
+
+
+
+
+
+
+
+
+//card infinite slide animation;;
+
+const track = document.querySelector('.slider-track');
+let cards = Array.from(document.querySelectorAll('.card'));
+let cardWidth = cards[0].offsetWidth + 20;
+
+function updateSlideWidth() {
+    cardWidth = document.querySelector('.card').offsetWidth + 20;
+}
+window.addEventListener('resize', updateSlideWidth);
+
+function slide() {
+    // Clone the first card and add it to the end before transition
+    let firstCardClone = cards[0].cloneNode(true);
+    track.appendChild(firstCardClone);
+    cards.push(firstCardClone);
+
+    // Start the sliding animation
+    track.style.transition = 'transform 0.5s ease-in-out';
+    track.style.transform = `translateX(${-cardWidth}px)`;
+
+    setTimeout(() => {
+        // Remove the first card after sliding and reset the position
+        track.style.transition = 'none';
+        track.removeChild(cards[0]);
+        track.style.transform = `translateX(0)`;
+        
+        // Update the cards array
+        cards.shift();
+    }, 500);
+}
+
+setTimeout(() => {
+    slide();
+    setInterval(slide, 5000);
+}, 1000); // Start first slide after 1 second

@@ -243,6 +243,7 @@ section {
 
 
 /* Featured Event Section OR Ongoing events section */
+
 #featured-event {
     padding: 50px 20px;
     background-color: #f9f9f9;
@@ -522,14 +523,6 @@ section {
 }
 
 
-/* .register-btn{
-    background-color: #4CAF50;
-}
-
-.register-btn:hover {
-    background-color: #397f3d;
-} */
-
 .register-btn:hover {
     background-color: #8a8a8a;
 }
@@ -565,7 +558,7 @@ section {
 }
 
 
-/* Hide scrollbar for a cleaner look */
+
 .events-container::-webkit-scrollbar {
     display: none;
 }
@@ -600,26 +593,26 @@ section {
 
 /* Video Background Container */
 .video-background {
-    position: absolute; /* Position the video absolutely within the section */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Lower z-index to place it behind the content */
-    overflow: hidden; /* Ensure the video doesn't overflow */
+    z-index: -1;
+    overflow: hidden; 
 }
 
 /* Video Styling */
 #events-video {
     width: 100%;
     height: 100%;
-    object-fit:cover; /* Ensure the video covers the entire container */
+    object-fit:cover;
 }
 
 /* Ensure the content is above the video */
 .events-section {
-    position: relative; /* Required for z-index to work */
-    z-index: 5; /* Higher z-index to place it above the video */
+    position: relative; 
+    z-index: 5; 
 }
 
 
@@ -665,7 +658,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+   
     background-color: #fff;
     margin: 0;
     font-family: Arial, sans-serif;

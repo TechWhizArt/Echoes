@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -148,6 +148,369 @@
         setTimeout(() => {
             slide();
             setInterval(slide, 5000);
+        }, 1000); // Start first slide after 1 second
+    </script>
+</body>
+</html>  -->
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>.testimonial-box {
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 400px;
+        margin: 20px auto;
+        font-family: Arial, sans-serif;
+    }
+    
+    .testimonial-text {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        margin-bottom: 15px;
+        font-style: italic;
+    }
+    
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+    }
+    
+    .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+    
+    .author-details {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .author-name {
+        font-size: 18px;
+        font-weight: bold;
+        color: #222;
+        margin: 0;
+    }
+    
+    .author-role {
+        font-size: 14px;
+        color: #777;
+        margin: 0;
+    }</style>
+</head>
+<body>
+    <div class="testimonial-box">
+        <div class="testimonial-content">
+            <p class="testimonial-text">
+                "This website is amazing! The user interface is clean, and the customer support is top-notch. Highly recommended!"
+            </p>
+            <div class="testimonial-author">
+                <img src="public/memberphoto/Niharika.png" alt="User Avatar" class="author-avatar">
+                <div class="author-details">
+                    <p class="author-name">John Doe</p>
+                    <p class="author-role">Happy Customer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonial Slider</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+            background-color: #f0f0f0;
+            overflow: hidden;
+            margin: 10;
+            font-family: Arial, sans-serif;
+        }
+        .slider {
+            width: 95%;
+            gap:10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .testimonial-box {
+            flex: 0 0 95%; /* One testimonial at a time */
+            background-color: #fff;
+            border-radius: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            margin: 0 10px;
+        }
+        .testimonial-box img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+        .testimonial-box h3 {
+            margin: 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .testimonial-box p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #555;
+        }
+        .testimonial-box .quote {
+            font-style: italic;
+            color: #777;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .testimonial-box {
+                padding: 15px;
+            }
+            .testimonial-box h3 {
+                font-size: 20px;
+            }
+            .testimonial-box p {
+                font-size: 14px;
+            }
+            .testimonial-box .quote {
+                font-size: 14px;
+            }
+        }
+    </style>
+
+
+
+
+<style>
+    .creative-testimonial {
+        max-width: 600px;
+        margin: 2rem auto;
+        perspective: 1000px;
+    }
+    
+    .testimonial-body {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border-radius: 15px;
+        padding: 30px;
+        position: relative;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        transform-style: preserve-3d;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        overflow: hidden;
+    }
+    
+    .testimonial-body:hover {
+        transform: translateY(-5px) rotateX(2deg) rotateY(1deg);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    }
+    
+    .quote-icon {
+        position: absolute;
+        top: -20px;
+        right: 20px;
+        font-size: 120px;
+        color: rgba(41, 128, 185, 0.15);
+        font-family: Georgia, serif;
+        font-weight: bold;
+    }
+    
+    .client-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        float: left;
+        shape-outside: circle();
+        margin-right: 25px;
+        border: 3px solid #2c3e50;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease;
+    }
+    
+    .client-avatar:hover {
+        transform: scale(1.1) rotate(5deg);
+    }
+    
+    .content {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .text {
+        color: #2c3e50;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin: 0 0 1.5rem 0;
+        position: relative;
+        padding-left: 20px;
+        border-left: 3px solid #2980b9;
+    }
+    
+    .author-info {
+        text-align: right;
+        padding-right: 20px;
+    }
+    
+    .name {
+        color: #2980b9;
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+    }
+    
+    .role {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+        margin: 5px 0 0;
+        font-style: italic;
+    }
+    
+    @media (max-width: 480px) {
+        .testimonial-body {
+            padding: 20px;
+        }
+        
+        .client-avatar {
+            float: none;
+            margin: 0 auto 20px;
+            display: block;
+        }
+        
+        .text {
+            padding-left: 0;
+            border-left: none;
+            text-align: center;
+        }
+        
+        .author-info {
+            text-align: center;
+            padding-right: 0;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- <div class="slider">
+        <div class="slider-track">
+            <div class="testimonial-box">
+                <img src="public/memberphoto/Niharika.png" alt="User Avatar">
+                <h3>John Doe</h3>
+                <p>Software Engineer</p>
+                <p class="quote">"This website is amazing! The user interface is clean, and the customer support is top-notch. Highly recommended!"</p>
+            </div>
+            <div class="testimonial-box">
+                <img src="public/memberphoto/Niharika.png" alt="User Avatar">
+                <h3>Jane Smith</h3>
+                <p>Data Scientist</p>
+                <p class="quote">"Data is the new oil. This platform has helped me analyze data like never before!"</p>
+            </div>
+            <div class="testimonial-box">
+                <img src="public/memberphoto/Niharika.png" alt="User Avatar">
+                <h3>Emily Johnson</h3>
+                <p>UX Designer</p>
+                <p class="quote">"Design is intelligence made visible. This website is a perfect example of that."</p>
+            </div>
+            <div class="testimonial-box">
+                <img src="public/memberphoto/Niharika.png" alt="User Avatar">
+                <h3>Michael Brown</h3>
+                <p>AI Researcher</p>
+                <p class="quote">"The future belongs to AI, and this platform is leading the way."</p>
+            </div>
+        </div>
+    </div> -->
+
+
+
+    <div class="creative-testimonial">
+        <div class="testimonial-body">
+            <div class="quote-icon">“</div>
+            <img src="public/memberphoto/Niharika.png" alt="Client" class="client-avatar">
+            <div class="content">
+                <p class="text">Lorem ipsum dolor sit, amet cones molestias architectoum labore, doloribus molestiae adipisci quas necessitatibus incidunt totam? Asperiores tempore laudantium culpa necessitatibus!</p>
+                <div class="author-info">
+                    <h3 class="name">Big Name</h3>
+                    <p class="role">Big Position</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        const track = document.querySelector('.slider-track');
+        let testimonials = Array.from(document.querySelectorAll('.testimonial-box'));
+        let testimonialWidth = testimonials[0].offsetWidth;
+
+        function updateTestimonialWidth() {
+            testimonialWidth = document.querySelector('.testimonial-box').offsetWidth;
+        }
+        window.addEventListener('resize', updateTestimonialWidth);
+
+        function slide() {
+            // Clone the first testimonial and add it to the end before transition
+            let firstTestimonialClone = testimonials[0].cloneNode(true);
+            track.appendChild(firstTestimonialClone);
+            testimonials.push(firstTestimonialClone);
+
+            // Start the sliding animation
+            track.style.transition = 'transform 0.5s ease-in-out';
+            track.style.transform = `translateX(${-testimonialWidth}px)`;
+
+            setTimeout(() => {
+                // Remove the first testimonial after sliding and reset the position
+                track.style.transition = 'none';
+                track.removeChild(testimonials[0]);
+                track.style.transform = `translateX(0)`;
+
+                // Update the testimonials array
+                testimonials.shift();
+            }, 500);
+        }
+
+        setTimeout(() => {
+            slide();
+            setInterval(slide, 5000); // Slide every 5 seconds
         }, 1000); // Start first slide after 1 second
     </script>
 </body>

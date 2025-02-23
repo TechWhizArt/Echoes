@@ -24,82 +24,70 @@ html{
 }
 /* Navbar styling */
 
-/* 
-.navbar {
-    position: fixed;
-    will-change: transform;
-    top: 0;
-    width: 100%;
-    height:auto;
-    background: rgba(255, 255, 255, 0.95);
-    padding:0px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
-} */
-
+/* Navbar styling */
 .navbar {
     position: sticky;
     top: 0;
     width: 100%;
-    height: auto;
-    background: rgba(255, 255, 255, 0.97); /* Slight opacity for softer look */ /* Solid background to reduce paint time */
-    padding: 0px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03); /* Lighter shadow for faster rendering */
+    background: rgba(255, 255, 255, 0.97);
+    padding: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 10;
-    transform: translate3d(0, 0, 2); /* Hardware acceleration for smoother scrolling */
-    will-change: transform; /* Hardware acceleration for smoother scrolling */
-    content-visibility: auto; /* Only render when visible */
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    content-visibility: auto;
 }
 
-.logo img{
-    padding-left:10px;
-    width:80px;
-    height:auto;
-    opacity:0.96;
-    transition:transform 0.3s ease-in-out;
+.logo img {
+    padding-left: 10px;
+    width: 80px;
+    height: auto;
+    opacity: 0.96;
+    transition: transform 0.3s ease-in-out;
 }
-.logo img:hover{
+
+.logo img:hover {
     transform: scale(1.07);
 }
+
 .nav-container {
     display: flex;
     align-items: center;
     content-visibility: auto;
 }
+
 .nav-links {
     display: flex;
-
 }
 
 .nav-links a {
-    color: #7f7f7f; /* Shorter hex code for efficiency */
+    color: #7f7f7f;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 8px 18px; /* Slightly reduced padding for compact layout */
+    padding: 8px 18px;
     transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.nav-links a:hover { color: rgb(46, 46, 46);     transform: scale(1.05);}
+.nav-links a:hover {
+    color: rgb(46, 46, 46);
+    transform: scale(1.05);
+}
 
 /* Responsive Navbar */
-
 .menu-icon {
     display: none;
     font-size: 25px;
     color: rgb(127, 127, 127);
     cursor: pointer;
-    padding-right:20px;
+    padding-right: 20px;
 }
 
 @media screen and (max-width: 768px) {
     .nav-links {
-        display: none;
+        display: none; /* Hide by default on mobile */
         flex-direction: column;
         background: rgba(255, 255, 255, 0.99);
         position: absolute;
@@ -109,17 +97,27 @@ html{
         height: auto;
         text-align: left;
         padding-top: 10px;
-        
     }
-    .nav-links a { display: block; padding: 15px; }
-    .menu-icon { display: block; }
-    .logo img{
-        padding-left:10px;
+
+    .nav-links.active {
+        display: flex; /* Show when active class is applied */
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 15px;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .logo img {
+        padding-left: 10px;
         width: 80px;
-        height:auto;
+        height: auto;
     }
 }
-
 
 /* Sections */
 section {
@@ -878,7 +876,7 @@ section {
 .slider-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    overflow: hidden;
+
     will-change: transform;
 }
 .card {
@@ -886,11 +884,13 @@ section {
     height: 300px;
     margin: 10px;
     background: white;
-    border-radius: 3px;
+    border-radius: 2px;
     overflow: hidden;
     box-shadow: 0 4px 8px #00000033;
     text-align: center;
+
 }
+
 .card img {
     width: 100%;
     height: 180px;
@@ -994,9 +994,16 @@ section {
 .contact-details img:hover {
     transform: scale(1.2);
 }
+.map {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
 
 .map iframe {
     border-radius: 10px;
+    display:block;
 }
 
 @media screen and (max-width: 768px) {
@@ -1072,7 +1079,7 @@ section {
     padding:5px 30px;
     background-color: #ffffffe6;
     border-radius: 20px;
-    box-shadow: 0 8px 16px #0000004d;
+
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -1080,8 +1087,8 @@ section {
   }
   
   .big-box:hover {
-    transform: scale(1.02);
-    box-shadow: 0 12px 24px #00000066;
+    transform: translate3d(5);
+    box-shadow: 0 8px 16px #0000004d;
   }
   
   /* Left Section (Team Members and Auditions) */
@@ -1095,7 +1102,7 @@ section {
     margin-top:20px;
     margin-bottom: 20px;
     color: #333;
-    animation: fadeInDown 1s ease-in-out;
+
   }
   
   .justified-text {
@@ -1110,18 +1117,19 @@ section {
   .cta-button {
     display: inline-block;
     height:50px;
-    padding: 15px 30px;
+    padding: 12px 30px;
     font-size: 18px;
     color: #fff;
-    background-color: #9886c8;
+    background-color: #347889;
     border-radius: 15px;
     text-decoration: none;
     transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
     margin-bottom: 25px;
+    
   }
   
   .cta-button:hover {
-    background-color: #ff3b2f;
+    background-color: #3c9fb7;
     transform: translateY(-3px);
   }
   
@@ -1148,7 +1156,7 @@ section {
   }
   
   /* Right Section (Social Media Boxes) */
- /* Right Section (Social Media Icons) */
+
 .right-section {
     width: 100%; /* Full width on smaller screens */
     max-width: 300px; /* Limit width on larger screens */

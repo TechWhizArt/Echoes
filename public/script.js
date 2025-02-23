@@ -178,3 +178,25 @@ setTimeout(() => {
 
   observer.observe(featuredEvent);
 
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const iframe = document.querySelector(".map iframe");
+
+    if (!iframe) {
+        console.error("Map iframe not found!");
+        return;
+    }
+
+    const observer = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (!iframe.src) { // Only set the src if it's not set yet
+                    iframe.src = iframe.getAttribute("data-src");
+                    observer.disconnect(); // Stop observing after loading
+                }
+            }
+        });
+    }, { threshold: 0.1 });
+
+    observer.observe(iframe);
+});

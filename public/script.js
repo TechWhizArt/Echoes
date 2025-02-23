@@ -157,3 +157,24 @@ setTimeout(() => {
     slide();
     setInterval(slide, 5000);
 }, 1000); // Start first slide after 1 second
+
+
+
+
+
+
+
+  const featuredEvent = document.getElementById('featured-event');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        featuredEvent.classList.add('offscreen');
+      } else {
+        featuredEvent.classList.remove('offscreen');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observer.observe(featuredEvent);
+

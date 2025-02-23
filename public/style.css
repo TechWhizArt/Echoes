@@ -3,15 +3,31 @@
     padding: 0; 
     box-sizing: border-box; 
     max-width:100%;
+    
 }
-body { font-family: Arial, sans-serif; }
+section {
+    content-visibility: auto;
+}
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  
 html{
     scroll-behavior:smooth;
 }
 /* Navbar styling */
+
+/* 
 .navbar {
     position: fixed;
+    will-change: transform;
     top: 0;
     width: 100%;
     height:auto;
@@ -21,28 +37,55 @@ html{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
+    z-index: 10;
+} */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: auto;
+    background: rgba(255, 255, 255, 0.97); /* Slight opacity for softer look */ /* Solid background to reduce paint time */
+    padding: 0px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03); /* Lighter shadow for faster rendering */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    transform: translate3d(0, 0, 2); /* Hardware acceleration for smoother scrolling */
+    will-change: transform; /* Hardware acceleration for smoother scrolling */
+    content-visibility: auto; /* Only render when visible */
 }
+
 .logo img{
     padding-left:10px;
     width:80px;
     height:auto;
+    opacity:0.96;
+    transition:transform 0.3s ease-in-out;
+}
+.logo img:hover{
+    transform: scale(1.07);
 }
 .nav-container {
     display: flex;
     align-items: center;
+    content-visibility: auto;
 }
 .nav-links {
     display: flex;
+
 }
+
 .nav-links a {
-    color: rgb(127, 127, 127);
+    color: #7f7f7f; /* Shorter hex code for efficiency */
     text-decoration: none;
-    font-family:Arial, Helvetica, sans-serif;
-    padding: 10px 20px;
-    transition: 0.3s;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px 18px; /* Slightly reduced padding for compact layout */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
-.nav-links a:hover { color: rgb(46, 46, 46); border-radius: 5px; }
+
+.nav-links a:hover { color: rgb(46, 46, 46);     transform: scale(1.05);}
 
 /* Responsive Navbar */
 
@@ -122,7 +165,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('assets/Untitled design.png');
+    background-image: url('assets/Untitled-design.webp');
     background-size: cover;
     overflow:hidden;
     position: relative;
@@ -352,18 +395,25 @@ section {
     }
 }
 /* Soft Flashy Background Animation with Pastel Colors */
+/* Optimized Soft Flashy Background Animation with Pastel Colors */
 #featured-event {
-    padding: 50px 20px;
+    padding: 40px 15px; /* Reduced padding for better spacing */
     background: linear-gradient(
         135deg,
-        #a3d9ff, /* Pastel Pink */
-        #fb5d5dbc, /* Pastel Blue */
-        #d1aeff, /* Pastel Green */
+        #a3d9ff, /* Pastel Blue */
+        #fb5d5d, /* Pastel Red */
+        #d1aeff, /* Pastel Purple */
         #ffe7c9, /* Pastel Orange */
-        #acacac  /* Pastel Pink */
+        #acacac  /* Pastel Gray */
     );
-    background-size: 400% 400%; /* Larger background size for smooth animation */
-    animation: gradientAnimation 5s ease infinite; /* Soft animation */
+    background-size: 300% 300%; /* Slightly smaller for optimized performance */
+    animation: gradientAnimation 8s ease infinite; /* Slower animation for less CPU usage */
+    will-change: background; /* Performance optimization */
+}
+
+/* Pauses the animation when the section is offscreen */
+#featured-event.offscreen {
+    animation: none;
 }
 
 @keyframes gradientAnimation {
@@ -533,14 +583,14 @@ section {
     position: absolute;
     top: 50%;
     transform: translateY(-30%);
-    background: rgba(255, 255, 255, 0);
+    background: #ffffff00;
     border: none;
     border-radius: 100%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+    box-shadow: 0 5px 15px #00000000;
     transition: background 0.3s ease;
     z-index:3;
 }
@@ -828,6 +878,8 @@ section {
 .slider-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    overflow: hidden;
+    will-change: transform;
 }
 .card {
     flex: 0 0 calc(50% - 20px); /* 2 cards per row on small screens */
@@ -836,7 +888,7 @@ section {
     background: white;
     border-radius: 3px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px #00000033;
     text-align: center;
 }
 .card img {
@@ -1018,9 +1070,9 @@ section {
     min-height:fit-content;
     margin: 30px auto;
     padding:5px 30px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: #ffffffe6;
     border-radius: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 16px #0000004d;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -1029,7 +1081,7 @@ section {
   
   .big-box:hover {
     transform: scale(1.02);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 24px #00000066;
   }
   
   /* Left Section (Team Members and Auditions) */
@@ -1224,7 +1276,7 @@ section {
 }
 
 .team-box {
-    background: rgba(177, 169, 199, 0.9);
+    background: #b1a9c7e6;
     border-radius: 15px;
     padding: 20px 0px;
 
@@ -1278,7 +1330,7 @@ section {
 
 /* Member Card Styles */
 .member-card {
-    background: rgb(255, 255, 255);
+    background: #ffffff;
     border-radius: 10px;
     width:100%;
     
@@ -1287,7 +1339,7 @@ section {
     perspective: 1000px; /* For 3D effect */
     position: relative;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px #0000001a;
     transition: transform 0.6s ease;
     transform-style: preserve-3d;
 }

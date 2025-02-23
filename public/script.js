@@ -200,3 +200,28 @@ setTimeout(() => {
 
     observer.observe(iframe);
 });
+
+
+
+
+
+// pause vdo on scroll
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const eventsVideo = document.getElementById("events-video");
+    const eventsSection = document.getElementById("events");
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                eventsVideo.play();
+            } else {
+                eventsVideo.pause();
+            }
+        });
+    }, { threshold: 0.1 });
+
+    observer.observe(eventsSection);
+});

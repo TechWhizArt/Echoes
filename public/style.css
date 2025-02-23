@@ -24,7 +24,6 @@ html{
 }
 /* Navbar styling */
 
-/* Navbar styling */
 .navbar {
     position: sticky;
     top: 0;
@@ -448,13 +447,13 @@ section {
 .events-section {
     text-align: center;
     padding: 100px 0px;
-    background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+
 }
 
 .events-section h1 {
     font-size: 36px;
     margin-bottom: 40px;
-    color: #333;
+    color: #594d4d;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -483,7 +482,7 @@ section {
     height: 500px;
     background-color: #fdfdfd;
     border-radius: 17px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
     overflow:hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
@@ -493,7 +492,7 @@ section {
 }
 
 .event-box:hover {
-    transform: translateY(-10px);
+    transform: translate3d(10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     
 }

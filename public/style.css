@@ -87,7 +87,7 @@ html{
     .nav-links {
         display: none;
         flex-direction: column;
-        background: rgba(255, 255, 255, 0.99);
+        background: rgba(255, 255, 255, 0.8);
         position: absolute;
         top: 50px;
         left: 0;
@@ -101,8 +101,15 @@ html{
     .menu-icon { display: block; }
     .logo img{
         padding-left:10px;
-        width: 80px;
+        width: 70px;
         height:auto;
+        opacity:0.8;
+
+    }
+    .navbar{
+        background: rgba(255, 255, 255, 0.8);
+        top:0px;
+
     }
 }
 
@@ -209,7 +216,7 @@ section {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     #home {
-        background-image: url('assets/phone.png');
+        background-image: url('assets/phone.webp');
         background-size: cover;
 
     }
@@ -979,9 +986,20 @@ section {
     border-radius:100%;
 }
 
+.icons img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+    border-radius:100%;
+}
+
+.icons img:hover {
+    transform: scale(1.2);
+}
 .contact-details img:hover {
     transform: scale(1.2);
 }
+
 .map {
     width: 100%;
     max-width: 1000px;
@@ -1259,8 +1277,6 @@ section {
   /* members page formatting */
 
 
-
-
 .boxes-group {
     display: flex;
     flex-wrap: wrap; /* Allow wrapping to the next line */
@@ -1272,7 +1288,7 @@ section {
 }
 
 .team-box {
-    background: #b1a9c7e6;
+    background:   #eae2b7d4;
     border-radius: 15px;
     padding: 20px 0px;
 
@@ -1326,7 +1342,7 @@ section {
 
 /* Member Card Styles */
 .member-card {
-    background: #ffffff;
+
     border-radius: 10px;
     width:100%;
     
@@ -1352,7 +1368,7 @@ section {
     box-sizing: border-box;
 }
 .leader .card-front, .card-back{
-    background: #ffcc00b0;
+    background: #eac486;
     color: white;
     width:300px;
 
@@ -1360,7 +1376,7 @@ section {
 
 
 .card-front {
-    background: white;
+    background: #7c9885da ;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1368,7 +1384,7 @@ section {
 }
 
 .card-back {
-    background: #936891b1;
+    background: #4f6469d3;
     color: white;
     transform: rotateY(180deg); /* Initially hidden */
     display: flex;
@@ -1412,7 +1428,7 @@ section {
 
 .member-post {
     font-size: 0.9em;
-    color: #777;
+    color: #e5f0d7;
     margin: 5px 0;
 }
 

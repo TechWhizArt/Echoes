@@ -225,3 +225,183 @@ document.addEventListener("DOMContentLoaded", function () {
 
     observer.observe(eventsSection);
 });
+
+
+
+
+// Function to handle the testimonials slider
+
+document.addEventListener('DOMContentLoaded', function() {
+    const testimonials = [
+        {
+            text: "Joining this club transformed my college experience. I've made lifelong friends and gained skills that helped me land my first internship!",
+            name: "Alex Johnson",
+            role: "Computer Science '22",
+            image: "https://randomuser.me/api/portraits/women/44.jpg"
+        },
+        {
+            text: "The workshops and networking events organized by the club gave me the confidence to pursue my dream career. I'm forever grateful for this community.",
+            name: "Sam Wilson",
+            role: "Business Admin '23",
+            image: "https://randomuser.me/api/portraits/men/32.jpg"
+        },
+        {
+            text: "As an international student, this club became my home away from home. The support and opportunities here are incredible.",
+            name: "Maria Garcia",
+            role: "Electrical Engineering '24",
+            image: "https://randomuser.me/api/portraits/women/63.jpg"
+        },
+        {
+            text: "I never thought I'd find people who shared my passion until I joined this club. Now we're working on projects together outside of school!",
+            name: "Jordan Lee",
+            role: "Graphic Design '23",
+            image: "https://randomuser.me/api/portraits/men/75.jpg"
+        },
+        {
+            text: "The leadership skills I developed through this club helped me grow both personally and professionally. Highly recommend to any student!",
+            name: "Taylor Smith",
+            role: "Psychology '22",
+            image: "https://randomuser.me/api/portraits/women/85.jpg"
+        }
+    ];
+    
+    const container = document.querySelector('.testimonials-container');
+    const navContainer = document.querySelector('.testimonial-nav');
+    let currentIndex = 0;
+    
+    // Create testimonial cards
+    testimonials.forEach((testimonial, index) => {
+        const card = document.createElement('div');
+        card.className = `testimonial-card ${index === 0 ? 'active' : ''}`;
+        card.innerHTML = `
+            <div class="quote-icon">"</div>
+            <p class="testimonial-text">${testimonial.text}</p>
+            <div class="testimonial-author">
+                <img src="${testimonial.image}" alt="${testimonial.name}" class="author-image">
+                <div class="author-info">
+                    <h4>${testimonial.name}</h4>
+                    <p>${testimonial.role}</p>
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
+        
+        // Create navigation dots
+        const dot = document.createElement('div');
+        dot.className = `nav-dot ${index === 0 ? 'active' : ''}`;
+        dot.dataset.index = index;
+        dot.addEventListener('click', () => {
+            goToTestimonial(index);
+        });
+        navContainer.appendChild(dot);
+    });
+    
+    // Auto-rotate testimonials
+    let interval = setInterval(nextTestimonial, 5000);
+    
+    function nextTestimonial() {
+        let nextIndex = (currentIndex + 1) % testimonials.length;
+        goToTestimonial(nextIndex);
+    }
+    
+    function goToTestimonial(index) {
+        // Reset interval when manually navigating
+        clearInterval(interval);
+        interval = setInterval(nextTestimonial, 5000);
+        
+        const cards = document.querySelectorAll('.testimonial-card');
+        const dots = document.querySelectorAll('.nav-dot');
+        
+        // Update current card
+        cards[currentIndex].classList.remove('active');
+        cards[currentIndex].classList.add('prev');
+        
+        // Update new card
+        cards[index].classList.remove('prev');
+        cards[index].classList.add('active');
+        
+        // Update dots
+        dots[currentIndex].classList.remove('active');
+        dots[index].classList.add('active');
+        
+        currentIndex = index;
+        
+        // Clean up classes after animation
+        setTimeout(() => {
+            cards.forEach(card => {
+                if (!card.classList.contains('active')) {
+                    card.classList.remove('prev');
+                }
+            });
+        }, 800);
+    }
+    
+    // Pause on hover
+    container.addEventListener('mouseenter', () => {
+        clearInterval(interval);
+    });
+    
+    container.addEventListener('mouseleave', () => {
+        clearInterval(interval);
+        interval = setInterval(nextTestimonial, 5000);
+    });
+});
+
+
+// Add this to your existing JS
+container.addEventListener('mousemove', (e) => {
+const cards = document.querySelectorAll('.testimonial-card');
+cards.forEach(card => {
+if(card.classList.contains('active')) {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const angleY = (x - centerX) / 20;
+    const angleX = (centerY - y) / 20;
+    
+    card.style.transform = `
+        perspective(1000px)
+        rotateX(${angleX}deg)
+        rotateY(${angleY}deg)
+        translateX(0)
+    `;
+}
+});
+});
+
+container.addEventListener('mouseleave', () => {
+const activeCard = document.querySelector('.testimonial-card.active');
+activeCard.style.transform = 'translateX(0)';
+});
+
+// Replace the testimonial text injection with:
+function typeWriter(text, element, speed = 20) {
+let i = 0;
+element.innerHTML = '';
+function typing() {
+if (i < text.length) {
+    element.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing, speed);
+}
+}
+typing();
+}
+
+// Then modify your card creation to:
+card.innerHTML = `
+<div class="quote-icon">"</div>
+<p class="testimonial-text"></p>
+<div class="testimonial-author">
+<img src="${testimonial.image}" alt="${testimonial.name}" class="author-image">
+<div class="author-info">
+    <h4>${testimonial.name}</h4>
+    <p>${testimonial.role}</p>
+</div>
+</div>
+`;
+if(index === 0) {
+typeWriter(testimonial.text, card.querySelector('.testimonial-text'));
+}

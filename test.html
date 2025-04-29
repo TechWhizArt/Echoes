@@ -1,212 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Testimonials</title>
+    <style>
 
-/* Navbar styling */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height:auto;
-    background: rgba(255, 255, 255, 0.95);
-    padding:0px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-}
-.logo img{
-    padding-left:10px;
-    width:80px;
-    height:auto;
-}
-.nav-container {
-    display: flex;
-    align-items: center;
-}
-.nav-links {
-    display: flex;
-}
-.nav-links a {
-    color: rgb(127, 127, 127);
-    text-decoration: none;
-    font-family:Arial, Helvetica, sans-serif;
-    padding: 10px 20px;
-    transition: 0.3s;
-}
-.nav-links a:hover { color: rgb(46, 46, 46); border-radius: 5px; }
-
-/* Responsive Navbar */
-
-.menu-icon {
-    display: none;
-    font-size: 25px;
-    color: rgb(127, 127, 127);
-    cursor: pointer;
-    padding-right:20px;
-}
-
-@media screen and (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        background: rgba(255, 255, 255, 0.99);
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        height: auto;
-        text-align: left;
-        padding-top: 10px;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        :root {
+            --color1: rgba(89, 106, 132, 1);
+            --color2: rgba(122, 108, 132, 1);
+            --color3: rgba(181, 125, 137, 1);
+            --color4: rgba(227, 182, 154, 1);
+            --color5: rgba(70, 118, 135, 1);
+            --base: white;
+        }
         
-    }
-    .nav-links a { display: block; padding: 15px; }
-    .menu-icon { display: block; }
-    .logo img{
-        padding-left:10px;
-        width: 80px;
-        height:auto;
-    }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--base);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .testimonials-section {
+            padding: 60px 20px;
+            text-align: center;
+            align-items: center;
+
+            background: linear-gradient(135deg, rgba(89, 106, 132, 0.1) 0%, rgba(227, 182, 154, 0.1) 100%);
+        }
+        
+        .testimonials-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--color1);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .testimonials-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--color3);
+            border-radius: 2px;
+        }
+        
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .testimonial-card {
+            position: absolute;
+            width: 80%;
+            max-width: 700px;
+            padding: 30px;
+            background-color: var(--base);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.8s ease;
+            opacity: 0;
+            transform: translateX(100%);
+            border-top: 5px solid var(--color3);
+        }
+        
+        .testimonial-card.active {
+            opacity: 1;
+            transform: translateX(0);
+            z-index: 10;
+        }
+        
+        .testimonial-card.prev {
+            transform: translateX(-100%);
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid var(--color4);
+        }
+        
+        .author-info h4 {
+            margin: 0;
+            color: var(--color1);
+            font-size: 1.2rem;
+        }
+        
+        .author-info p {
+            margin: 5px 0 0;
+            color: var(--color2);
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-nav {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--color5);
+            opacity: 0.3;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-dot.active {
+            opacity: 1;
+            transform: scale(1.2);
+            background-color: var(--color3);
+        }
+        
+        .quote-icon {
+            color: var(--color4);
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+
+
+
+        .testimonials-section {
+    background: linear-gradient(-45deg, 
+        rgba(89, 106, 132, 0.05), 
+        rgba(227, 182, 154, 0.05), 
+        rgba(181, 125, 137, 0.05), 
+        rgba(70, 118, 135, 0.05));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
 }
 
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+        @media (max-width: 768px) {
+            .testimonial-card {
+                width: 90%;
+                padding: 20px;
+            }
+            
+            .testimonial-text {
+                font-size: 1rem;
+            }
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//new
-
-
-/* Navbar styling */
-.navbar {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.97);
-    padding: 0;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+        .testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 400px;
+    
+    /* MODIFIED: Use flexbox for centering */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    z-index: 10;
-    transform: translate3d(0, 0, 0);
-    will-change: transform;
-    content-visibility: auto;
+    position: relative;
+    overflow: hidden;
 }
 
-.logo img {
-    padding-left: 10px;
-    width: 80px;
-    height: auto;
-    opacity: 0.96;
-    transition: transform 0.3s ease-in-out;
+.testimonial-card {
+    /* MODIFIED: Removed position:absolute, added flex-shrink */
+    width: 80%;
+    max-width: 700px;
+    padding: 30px;
+    background-color: var(--base);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.8s ease;
+    opacity: 0;
+    transform: translateX(100%);
+    border-top: 5px solid var(--color3);
+    flex-shrink: 0; /* Prevent shrinking inside flex container */
+    position: absolute; /* Still needed for animation */
 }
 
-.logo img:hover {
-    transform: scale(1.07);
-}
+    </style>
+</head>
+<body>
+    <section class="testimonials-section">
+        <h2 class="testimonials-title">What Members Say</h2>
+        
+        <div class="testimonials-container">
+            <!-- Testimonial cards will be added here by JavaScript -->
+        </div>
+        
+        <div class="testimonial-nav">
+            <!-- Navigation dots will be added here by JavaScript -->
+        </div>
+    </section>
 
-.nav-container {
-    display: flex;
-    align-items: center;
-    content-visibility: auto;
-}
+    <script>
+      
+        document.addEventListener('DOMContentLoaded', function() {
+            const testimonials = [
+                {
+                    text: "Joining this club transformed my college experience. I've made lifelong friends and gained skills that helped me land my first internship!",
+                    name: "Alex Johnson",
+                    role: "Computer Science '22",
+                    image: "https://randomuser.me/api/portraits/women/44.jpg"
+                },
+                {
+                    text: "The workshops and networking events organized by the club gave me the confidence to pursue my dream career. I'm forever grateful for this community.",
+                    name: "Sam Wilson",
+                    role: "Business Admin '23",
+                    image: "https://randomuser.me/api/portraits/men/32.jpg"
+                },
+                {
+                    text: "As an international student, this club became my home away from home. The support and opportunities here are incredible.",
+                    name: "Maria Garcia",
+                    role: "Electrical Engineering '24",
+                    image: "https://randomuser.me/api/portraits/women/63.jpg"
+                },
+                {
+                    text: "I never thought I'd find people who shared my passion until I joined this club. Now we're working on projects together outside of school!",
+                    name: "Jordan Lee",
+                    role: "Graphic Design '23",
+                    image: "https://randomuser.me/api/portraits/men/75.jpg"
+                },
+                {
+                    text: "The leadership skills I developed through this club helped me grow both personally and professionally. Highly recommend to any student!",
+                    name: "Taylor Smith",
+                    role: "Psychology '22",
+                    image: "https://randomuser.me/api/portraits/women/85.jpg"
+                }
+            ];
+            
+            const container = document.querySelector('.testimonials-container');
+            const navContainer = document.querySelector('.testimonial-nav');
+            let currentIndex = 0;
+            
+            // Create testimonial cards
+            testimonials.forEach((testimonial, index) => {
+                const card = document.createElement('div');
+                card.className = `testimonial-card ${index === 0 ? 'active' : ''}`;
+                card.innerHTML = `
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">${testimonial.text}</p>
+                    <div class="testimonial-author">
+                        <img src="${testimonial.image}" alt="${testimonial.name}" class="author-image">
+                        <div class="author-info">
+                            <h4>${testimonial.name}</h4>
+                            <p>${testimonial.role}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+                
+                // Create navigation dots
+                const dot = document.createElement('div');
+                dot.className = `nav-dot ${index === 0 ? 'active' : ''}`;
+                dot.dataset.index = index;
+                dot.addEventListener('click', () => {
+                    goToTestimonial(index);
+                });
+                navContainer.appendChild(dot);
+            });
+            
+            // Auto-rotate testimonials
+            let interval = setInterval(nextTestimonial, 5000);
+            
+            function nextTestimonial() {
+                let nextIndex = (currentIndex + 1) % testimonials.length;
+                goToTestimonial(nextIndex);
+            }
+            
+            function goToTestimonial(index) {
+                // Reset interval when manually navigating
+                clearInterval(interval);
+                interval = setInterval(nextTestimonial, 5000);
+                
+                const cards = document.querySelectorAll('.testimonial-card');
+                const dots = document.querySelectorAll('.nav-dot');
+                
+                // Update current card
+                cards[currentIndex].classList.remove('active');
+                cards[currentIndex].classList.add('prev');
+                
+                // Update new card
+                cards[index].classList.remove('prev');
+                cards[index].classList.add('active');
+                
+                // Update dots
+                dots[currentIndex].classList.remove('active');
+                dots[index].classList.add('active');
+                
+                currentIndex = index;
+                
+                // Clean up classes after animation
+                setTimeout(() => {
+                    cards.forEach(card => {
+                        if (!card.classList.contains('active')) {
+                            card.classList.remove('prev');
+                        }
+                    });
+                }, 800);
+            }
+            
+            // Pause on hover
+            container.addEventListener('mouseenter', () => {
+                clearInterval(interval);
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                clearInterval(interval);
+                interval = setInterval(nextTestimonial, 5000);
+            });
+        });
 
-.nav-links {
-    display: flex;
-}
 
-.nav-links a {
-    color: #7f7f7f;
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 8px 18px;
-    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
+        // Add this to your existing JS
+container.addEventListener('mousemove', (e) => {
+    const cards = document.querySelectorAll('.testimonial-card');
+    cards.forEach(card => {
+        if(card.classList.contains('active')) {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const angleY = (x - centerX) / 20;
+            const angleX = (centerY - y) / 20;
+            
+            card.style.transform = `
+                perspective(1000px)
+                rotateX(${angleX}deg)
+                rotateY(${angleY}deg)
+                translateX(0)
+            `;
+        }
+    });
+});
 
-.nav-links a:hover {
-    color: rgb(46, 46, 46);
-    transform: scale(1.05);
-}
+container.addEventListener('mouseleave', () => {
+    const activeCard = document.querySelector('.testimonial-card.active');
+    activeCard.style.transform = 'translateX(0)';
+});
 
-/* Responsive Navbar */
-.menu-icon {
-    display: none;
-    font-size: 25px;
-    color: rgb(127, 127, 127);
-    cursor: pointer;
-    padding-right: 20px;
-}
-
-@media screen and (max-width: 768px) {
-    .nav-links {
-        display: none; /* Hide by default on mobile */
-        flex-direction: column;
-        background: rgba(255, 255, 255, 0.99);
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        height: auto;
-        text-align: left;
-        padding-top: 10px;
+// Replace the testimonial text injection with:
+function typeWriter(text, element, speed = 20) {
+    let i = 0;
+    element.innerHTML = '';
+    function typing() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing, speed);
+        }
     }
-
-    .nav-links.active {
-        display: flex; /* Show when active class is applied */
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 15px;
-    }
-
-    .menu-icon {
-        display: block;
-    }
-
-    .logo img {
-        padding-left: 10px;
-        width: 80px;
-        height: auto;
-    }
+    typing();
 }
 
-/* Sections */
-section {
-    min-height: auto;
-    padding: 80px 20px;
-    scroll-margin-top: 60px;
+// Then modify your card creation to:
+card.innerHTML = `
+    <div class="quote-icon">"</div>
+    <p class="testimonial-text"></p>
+    <div class="testimonial-author">
+        <img src="${testimonial.image}" alt="${testimonial.name}" class="author-image">
+        <div class="author-info">
+            <h4>${testimonial.name}</h4>
+            <p>${testimonial.role}</p>
+        </div>
+    </div>
+`;
+if(index === 0) {
+    typeWriter(testimonial.text, card.querySelector('.testimonial-text'));
 }
-#home { 
-    background: #ffffff; 
-    min-height:fit-content;
-}
-#about {
-    background: #ffffff; 
-    }
-#events { 
-    background: #ffffff; 
-}
-#gallery { 
-    background: #ffffff;
-    min-height:fit-content; 
-
-}
-#contact { 
-    background: #555;
-    min-height: 50vh; 
-}
-
-
-
+    </script>
+</body>
+</html>

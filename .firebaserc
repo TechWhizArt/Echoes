@@ -1,7 +1,5 @@
 {
   "projects": {
-    "echoes": "echoesmiet"
-  },
-  "targets": {},
-  "etags": {}
+    "default": "echoesmiet"
+  }
 }

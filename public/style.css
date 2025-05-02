@@ -3,7 +3,6 @@
     padding: 0; 
     box-sizing: border-box; 
     max-width:100%;
-
     
 }
 section {
@@ -25,7 +24,7 @@ body {
   
 html{
     scroll-behavior:smooth;
-
+    max-width:100%;
 }
 /* Navbar styling */
 
@@ -127,8 +126,9 @@ section {
     scroll-margin-top: 60px;
 }
 #home { 
-    background: #ffffff; 
+
     min-height:fit-content;
+    
 }
 #about {
     background: #ffffff; 
@@ -233,7 +233,7 @@ section {
 
     .home-content {
         max-width: 100%;
-        padding: 20px;
+        padding: 5px;
         
     }
 
@@ -294,9 +294,11 @@ section {
   }
 
   #event-showcase {
-    padding: 80px 20px;
+    padding: 60px 20px;
     overflow: hidden;
     position: relative;
+    height:auto;
+    background-color: rgba(201, 124, 147, 0.762);
   }
 
   #event-showcase h2 {
@@ -313,7 +315,7 @@ section {
     max-width: 1300px;
     margin: 0 auto;
     position: relative;
-    height: 400px;
+    min-height: 400px;
   }
 
   .highlight-box {
@@ -474,7 +476,13 @@ section {
       padding: 25px;
       gap: 30px;
     }
-
+    .slider-wrapper {
+        max-width: 1300px;
+        margin: 0 auto;
+        position: relative;
+        height: 800px;
+      }
+    
     .image-zone { width: 100%; flex: 0 0 auto; }
     #event-showcase h2 { font-size: 2.2rem; margin-bottom: 40px; }
     .meta-line { flex-direction: column; gap: 10px; }
@@ -907,7 +915,7 @@ section {
 /* ===== CONTRIBUTORS SECTION ===== */
 #contributors {
     padding: 60px 0;
-    background: linear-gradient(135deg, rgba(249, 248, 249) 0%, rgba(227, 182, 154, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(163, 158, 152, 0.257) 0%, rgba(126, 118, 113, 0.237) 100%);
     overflow: hidden;
     position: relative;
     text-align: center;

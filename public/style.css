@@ -943,7 +943,7 @@ section {
 
 /* Offset for Even Columns */
 .column-2, .column-4 {
-    padding-top: 100px;
+    padding-top: 100px !important;
 }
 
 /* Yellowish warm tone filter applied to all images in gallery */
@@ -965,7 +965,7 @@ section {
 /* Responsive Design */
 /* Responsive Layout for Smaller Screens */
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     #gallery{
         padding:40px 0px;
     }
@@ -1780,7 +1780,6 @@ position: absolute; /* Still needed for animation */
 
   /* members page formatting */
 
-
 .boxes-group {
     display: flex;
     flex-wrap: wrap; /* Allow wrapping to the next line */
@@ -1994,4 +1993,109 @@ position: absolute; /* Still needed for animation */
 
 
 
+/* updated home section */
+:root {
+    --color1: rgba(89, 106, 132, 1);
+    --color2: rgba(122, 108, 132, 1);
+    --color3: rgba(181, 125, 137, 1);
+    --color4: rgba(227, 182, 154, 1);
+    --color5: rgba(70, 118, 135, 1);
+    --base: white;
+}
 
+/* Home Section */
+#home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('assets/Untitled-design.webp');
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+/* Left Section: Quote and Content */
+.home-content {
+    flex: 1;
+    max-width: 50%;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.85); /* Light background for contrast */
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.home-content .quote {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--color1);
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+.home-content .description {
+    font-size: 18px;
+    color: var(--color2);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+.home-content .cta-btn {
+    background-color: var(--color5);
+    color: var(--base);
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.home-content .cta-btn:hover {
+    background-color: var(--color3);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    #home {
+        background-image: url('assets/phone.webp');
+        background-size: cover;
+    }
+
+    .home-container {
+        flex-direction: column;
+        text-align: justify;
+    }
+
+    .home-content {
+        max-width: 100%;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .home-image {
+        display: none; /* Hide image on smaller screens */
+    }
+
+    .home-content .quote {
+        font-size: 36px;
+    }
+
+    .home-content .description {
+        font-size: 16px;
+    }
+
+    section {
+        padding: 50px 20px;
+    }
+}

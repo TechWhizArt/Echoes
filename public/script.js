@@ -314,14 +314,14 @@
 	document.addEventListener('DOMContentLoaded', function() {
 		const dataList = [
 			{
-			name: "Upcoming Event Name",
+			name: "Echoes Recruitment Drive",
 			// timing: "May 15-17, 2025",
-			timing: "Sample date",
+			timing: "June 1-8, 2025",
 
-			venue: "Audi-4, Raman Block, Miet",
-			summary: "Details about the event",
+			venue: "Azim Premji Building, Board room",
+			summary: "Wanna Be a part of our community?? Join us today. Register for the interview process and become a member of the Echoes Club. We are looking for passionate individuals who want to make a difference.",
 			// visual: "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=1470&q=80"
-			visual: "assets/coming_soon.webp"
+			visual: "assets/WhatsApp Image 2025-06-01 at 18.10.58.jpeg"
 			}
 		];
 
@@ -368,8 +368,8 @@
 				</div>
 				<p class="summary">${e.summary}</p>
 				<div class="cta-area">
-					<a href="#" class="cta-button btn-primary">Join Now</a>
-					<a href="#" class="cta-button btn-outline">Details</a>
+					<a href="https://docs.google.com/forms/d/e/1FAIpQLSdMYe7ArFX6njyPqluUa5LEvjMM_6W3bbUwNgsH7jUPL4TiXg/viewform?usp=dialog" class="cta-button btn-primary">Join Now</a>   
+					<a href="#members" class="cta-button btn-outline">Details</a>     
 				</div>
 				</div>`;
 			sliderDeck.appendChild(panel);

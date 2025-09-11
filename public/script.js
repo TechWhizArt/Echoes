@@ -178,31 +178,31 @@
 	document.addEventListener('DOMContentLoaded', function() {
 		const testimonials = [
 			{
-				text: "Echoes MIET always delivers well-organized, engaging events. The coordination, creativity, and attention to detail make every program memorable and impactful for all participants.",
+				text: "From late-night planning to big stage events, Echoes felt like family. It shaped my creativity and gave me lifelong friends and mentors.",
 				name: "Vanshika Jain",
 				role: "Application Engineer @Hexaview Technologies",
 				image: "assets/vanshika_test.webp"
 			},
 			{
-				text: "The professionalism of Echoes MIET’s event management is outstanding. Every event feels smooth, vibrant, and well-planned, keeping both guests and participants engaged throughout",
+				text: "Echoes was where I found my voice. Presentations, teamwork, and challenges here helped me break limits I didn’t know I had.",
 				name: "Vanshika Garg",
 				role: "Associate - P2P(PFM) @Rio Tinto",
 				image: "assets/vanshikaGarg.webp"
 			},
 			{
-				text: "Echoes MIET sets a benchmark in event organization. From planning to execution, their teamwork and dedication shine, making each occasion truly unforgettable.",
+				text: "Looking back, Echoes gave me a platform to experiment, fail, learn, and succeed. It was the best teacher I could’ve asked for",
 				name: "Rajan Tyagi",
 				role: "Programmer Analyst @Cognizant",
 				image: "assets/RajanTyagi.webp"
 			},
 			{
-				text: "Participating in Echoes MIET events is a delight! Their seamless management and innovative ideas create an energetic and enjoyable atmosphere for everyone.",
+				text: "I still remember our first event—it felt magical. Echoes made me realize that ideas matter when they are shared, built, and celebrated.",
 				name: "Mr. Chirag Bansal",
 				role: "Graphic Design '23",
 				image: "assets/ChiragBansal.webp"
 			},
 			{
-				text: "Echoes MIET knows how to blend creativity with precision. Their events run on time, are interactive, and always leave a lasting positive impression.",
+				text: "Echoes was my launchpad. I discovered my strengths, worked with amazing peers, and grew into someone ready to face the real world.",
 				name: "Capt. Arun Pundir",
 				role: "Army Office @Indian Army , Ex-SDE @GFG",
 				image: "assets/CaptArunPundir.webp"

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bubbles Team Page - Grid</title>
+  <style>
+    .bubble {
+      display: inline-block;
+      position: relative;
+      padding: 12px 18px;
+      background: #007bff;
+      color: white;
+      border-radius: 12px;
+      max-width: 250px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    /* Triangle tail */
+    .bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      /* places it below the bubble */
+      left: 20px;
+      /* adjust where tail should appear */
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      /* left side invisible */
+      border-right: 10px solid transparent;
+      /* right side invisible */
+      border-top: 10px solid #007bff;
+      /* top = same color as bubble */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bubble">
+    This is a message bubble with a tail 👇
+  </div>
+</body>
+
+</html>

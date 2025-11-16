@@ -1,0 +1,287 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #eee7de;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.team-section {
+    text-align: center;
+    padding: 50px 20px;
+    height: 100vh;
+}
+
+.team-section h2 {
+    font-size: 77px;
+    margin-bottom: 40px;
+    margin-top: 0;
+    color: #1b1b1b;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    background: #f8f8f8;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 320px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.member-img {
+    background: #ffd900;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.member-img img {
+    height: 250px;
+    width: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.member-info {
+    padding: 20px;
+}
+
+.member-info h3 {
+    font-size: 18px;
+    color: #0a0a0a;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.member-info p {
+    color: #444;
+    font-size: 14px;
+    margin: 5px 0 15px;
+}
+
+.extra-info {
+    max-height: 0;
+    overflow: hidden;
+    font-size: 14px;
+    color: #555;
+    transition: max-height 0.4s ease;
+}
+
+.team-member:hover .extra-info {
+    max-height: 100px;
+    margin-top: 10px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ffd900;
+}
+
+.mainDiv {
+    height: 100vh;
+    display: flex;
+}
+
+.left {
+    background: #eee7de;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.left h1 {
+    font-size: 70px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.left p {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.socials {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+}
+
+.socials a {
+    text-decoration: none;
+    color: #111;
+    font-weight: bold;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.presiDiv {
+    display: flex;
+    gap: 10px;
+    height: 100%;
+    margin-top: 15%;
+}
+
+.imageDiv {
+    height: 85%;
+    width: 330px;
+    overflow: hidden;
+    background-color: #808080;
+    position: relative;
+    border: 3px solid #e3e9f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.presiImages {
+    height: 90%;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover;
+}
+
+.textDiv {
+    width: 100%;
+    padding-bottom: 10%;
+    display: flex;
+    color: #333;
+}
+
+.textDivKids {
+    width: 100%;
+}
+
+.textDivKids>p {
+    margin: 0;
+    padding-left: 10px;
+}
+
+.names {
+    font-size: 30px;
+    padding-bottom: 4px;
+}
+
+
+
+/* section-3 */
+
+.LeadingMembers {
+    height: 100vh;
+    width: 99vw;
+    background-color: #eee7de;
+}
+
+.LeadingMembers h2 {
+    font-size: 77px;
+    text-align: center;
+}
+
+.photosParentContainer {
+    display: flex;
+    gap: 43px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-top: 120px;
+}
+
+.photos {
+    height: 12%;
+    width: 12%;
+}
+
+.roundPhotoContainerText {
+    text-align: center;
+    padding-top: 15px;
+
+    &>p {
+        margin: 0;
+    }
+}
+
+.roundPhoto {
+    height: 40%;
+    aspect-ratio: 1 / 1;
+    background-color: gray;
+    border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.roundPhoto img {
+    height: 90%;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover;
+}
+
+
+/* section 4 */
+
+.membersPhotos {
+    margin-top: 30px;
+}
+
+.membersText {
+    font-size: 12px;
+    padding-top: 8px;
+}
+
+.membersTitle {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.grayText {
+    color: #333;
+
+}
+
+.boldText {
+    margin: 0;
+}

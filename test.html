@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Members Section</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #fff;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .LeadingMembers {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .membersTitle {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 50px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+
+        .membersTitle::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+            border-radius: 2px;
+        }
+
+        .categories-container {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .category {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+        }
+
+        .category-title {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: #ffd93d;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+            border-radius: 1px;
+        }
+
+        .photosParentContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .photos {
+            perspective: 1000px;
+        }
+
+        .roundPhotoContainer {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .roundPhotoContainer:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 217, 61, 0.2);
+        }
+
+        .roundPhoto {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .roundPhotoContainer:hover .roundPhoto {
+            border-color: #ffd93d;
+            transform: scale(1.05);
+        }
+
+        .roundPhoto img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .roundPhotoContainer:hover .roundPhoto img {
+            transform: scale(1.1);
+        }
+
+        .membersText {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .boldText {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .grayText {
+            color: #94a3b8;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .social-links a:hover {
+            color: #ffd93d;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Filter buttons */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+            color: #0f172a;
+            transform: translateY(-2px);
+        }
+
+        /* Animation for category filtering */
+        .category {
+            transition: all 0.5s ease;
+        }
+
+        .category.hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            height: 0;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .photosParentContainer {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+        }
+
+        @media (max-width: 992px) {
+            .membersTitle {
+                font-size: 2.5rem;
+            }
+            
+            .category-title {
+                font-size: 1.8rem;
+            }
+            
+            .photosParentContainer {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            
+            .roundPhoto {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .membersTitle {
+                font-size: 2.2rem;
+            }
+            
+            .category-title {
+                font-size: 1.6rem;
+            }
+            
+            .photosParentContainer {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 15px;
+            }
+            
+            .category {
+                padding: 20px;
+            }
+            
+            .roundPhotoContainer {
+                padding: 15px;
+            }
+            
+            .roundPhoto {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .boldText {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .membersTitle {
+                font-size: 1.8rem;
+            }
+            
+            .category-title {
+                font-size: 1.4rem;
+            }
+            
+            .photosParentContainer {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+            
+            .roundPhoto {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .boldText {
+                font-size: 1rem;
+            }
+            
+            .grayText {
+                font-size: 0.8rem;
+            }
+            
+            .filter-buttons {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .photosParentContainer {
+                grid-template-columns: 1fr;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+            
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="LeadingMembers">
+        <h2 class="membersTitle">Our Helpful Members</h2>
+        
+        <!-- Filter buttons -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-category="all">All Members</button>
+            <button class="filter-btn" data-category="leadership">Leadership</button>
+            <button class="filter-btn" data-category="technical">Technical</button>
+            <button class="filter-btn" data-category="creative">Creative</button>
+            <button class="filter-btn" data-category="marketing">Marketing</button>
+            <button class="filter-btn" data-category="operations">Operations</button>
+            <button class="filter-btn" data-category="design">Design</button>
+            <button class="filter-btn" data-category="content">Content</button>
+        </div>
+        
+        <!-- Categories container - will be populated by JavaScript -->
+        <div class="categories-container" id="categoriesContainer">
+            <!-- Categories will be generated here -->
+        </div>
+    </section>
+
+    <script>
+        // Member data organized by categories
+        const memberData = {
+            leadership: {
+                title: "Leadership Team",
+                members: [
+                    { name: "Vartika Jain", role: "President", image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Chirag Sharma", role: "Vice President", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Anshika Sharma", role: "General Secretary", image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Rahul Verma", role: "Treasurer", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                ]
+            },
+            technical: {
+                title: "Technical Team",
+                members: [
+                    { name: "Amit Kumar", role: "Web Developer", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Sneha Reddy", role: "Android Developer", image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Vikram Singh", role: "Backend Developer", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Arjun Mehta", role: "Data Analyst", image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Rohan Malhotra", role: "AI/ML Engineer", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                ]
+            },
+            creative: {
+                title: "Creative Team",
+                members: [
+                    { name: "Priya Singh", role: "Design Head", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Kavya Joshi", role: "UI/UX Designer", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Riya Sharma", role: "Graphic Designer", image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Siddharth Roy", role: "Video Editor", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                ]
+            },
+            marketing: {
+                title: "Marketing Team",
+                members: [
+                    { name: "Rajesh Patel", role: "Marketing Head", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Neha Gupta", role: "Social Media Manager", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Aditya Singh", role: "Content Strategist", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Pooja Mehta", role: "Brand Ambassador", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                ]
+            },
+            operations: {
+                title: "Operations Team",
+                members: [
+                    { name: "Sanjay Kumar", role: "Operations Head", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Anjali Sharma", role: "Event Coordinator", image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Mohit Agarwal", role: "Logistics Manager", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Divya Reddy", role: "Volunteer Coordinator", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                ]
+            },
+            design: {
+                title: "Design Team",
+                members: [
+                    { name: "Rahul Desai", role: "Creative Director", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Simran Kaur", role: "Visual Designer", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Aryan Malhotra", role: "Motion Designer", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Ishita Verma", role: "Illustrator", image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                ]
+            },
+            content: {
+                title: "Content Team",
+                members: [
+                    { name: "Nisha Patel", role: "Content Head", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Rohit Sharma", role: "Content Writer", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Meera Iyer", role: "Copywriter", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Karan Singh", role: "Blog Manager", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                ]
+            }
+        };
+
+        // Function to generate member card HTML
+        function generateMemberCard(member) {
+            return `
+                <div class="photos">
+                    <div class="roundPhotoContainer">
+                        <div class="roundPhoto">
+                            <img src="${member.image}" alt="${member.name}">
+                        </div>
+                        <div class="roundPhotoContainerText membersText">
+                            <h3 class="boldText">${member.name}</h3>
+                            <p class="grayText">${member.role}</p>
+                            <div class="social-links">
+                                <a href="#">LinkedIn</a>
+                                <a href="#">Instagram</a>
+                                <a href="#">Snapchat</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to generate category HTML
+        function generateCategory(categoryId, categoryData) {
+            const membersHTML = categoryData.members.map(member => generateMemberCard(member)).join('');
+            
+            return `
+                <div class="category" data-category="${categoryId}">
+                    <h3 class="category-title">${categoryData.title}</h3>
+                    <div class="photosParentContainer membersPhotos">
+                        ${membersHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to render all categories
+        function renderCategories() {
+            const container = document.getElementById('categoriesContainer');
+            let categoriesHTML = '';
+            
+            for (const [categoryId, categoryData] of Object.entries(memberData)) {
+                categoriesHTML += generateCategory(categoryId, categoryData);
+            }
+            
+            container.innerHTML = categoriesHTML;
+        }
+
+        // Function to filter categories
+        function filterCategories(category) {
+            const allCategories = document.querySelectorAll('.category');
+            
+            if (category === 'all') {
+                allCategories.forEach(cat => {
+                    cat.classList.remove('hidden');
+                    setTimeout(() => {
+                        cat.style.display = 'block';
+                    }, 50);
+                });
+            } else {
+                allCategories.forEach(cat => {
+                    if (cat.dataset.category === category) {
+                        cat.classList.remove('hidden');
+                        setTimeout(() => {
+                            cat.style.display = 'block';
+                        }, 50);
+                    } else {
+                        cat.classList.add('hidden');
+                        setTimeout(() => {
+                            cat.style.display = 'none';
+                        }, 500);
+                    }
+                });
+            }
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Render all categories
+            renderCategories();
+            
+            // Add event listeners to filter buttons
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Filter categories
+                    const category = this.dataset.category;
+                    filterCategories(category);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

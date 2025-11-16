@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Members Section</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .LeadingMembers {
+            width: 100%;
+            max-width: 1200px;
+            padding: 30px 20px;
+        }
+
+        .membersTitle {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+
+        .membersTitle::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+            border-radius: 2px;
+        }
+
+        /* Compact category tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .category-tab {
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .category-tab:hover, .category-tab.active {
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+            color: #0f172a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Main content area */
+        .members-display {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-height: 500px;
+            position: relative;
+        }
+
+        .members-display::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #ffd93d;
+            text-align: center;
+        }
+
+        /* Compact grid layout */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .member-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 20px 15px;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 217, 61, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .member-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .member-card:hover .member-image {
+            border-color: #ffd93d;
+            transform: scale(1.1);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .member-role {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-bottom: 10px;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .social-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: #ffd93d;
+            color: #0f172a;
+            transform: scale(1.1);
+        }
+
+        /* Animation for category switching */
+        .category-content {
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Quick view for all members */
+        .all-members-view {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .all-member-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 15px 10px;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .all-member-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 217, 61, 0.2);
+        }
+
+        .all-member-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .all-member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .all-member-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #fff;
+        }
+
+        .all-member-role {
+            font-size: 0.7rem;
+            color: #94a3b8;
+        }
+
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .membersTitle {
+                font-size: 2.2rem;
+            }
+            
+            .members-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 15px;
+            }
+            
+            .all-members-view {
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .membersTitle {
+                font-size: 1.8rem;
+            }
+            
+            .category-tabs {
+                gap: 8px;
+            }
+            
+            .category-tab {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .members-display {
+                padding: 20px;
+            }
+            
+            .category-title {
+                font-size: 1.5rem;
+            }
+            
+            .members-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+            
+            .all-members-view {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .membersTitle {
+                font-size: 1.6rem;
+            }
+            
+            .category-tabs {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+            
+            .category-tab {
+                flex-shrink: 0;
+            }
+            
+            .members-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .all-members-view {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .all-members-view {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="LeadingMembers">
+        <h2 class="membersTitle">Our Helpful Members</h2>
+        
+        <!-- Compact category tabs -->
+        <div class="category-tabs" id="categoryTabs">
+            <!-- Tabs will be generated by JavaScript -->
+        </div>
+        
+        <!-- Main content area -->
+        <div class="members-display" id="membersDisplay">
+            <!-- Content will be generated by JavaScript -->
+        </div>
+    </section>
+
+    <script>
+        // Member data organized by categories
+        const memberData = {
+            all: {
+                title: "All Team Members",
+                view: "all"
+            },
+            leadership: {
+                title: "Leadership Team",
+                members: [
+                    { name: "Vartika Jain", role: "President", image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Chirag Sharma", role: "Vice President", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Anshika Sharma", role: "General Secretary", image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Rahul Verma", role: "Treasurer", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                ]
+            },
+            technical: {
+                title: "Technical Team",
+                members: [
+                    { name: "Amit Kumar", role: "Web Developer", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Sneha Reddy", role: "Android Developer", image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Vikram Singh", role: "Backend Developer", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Arjun Mehta", role: "Data Analyst", image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                ]
+            },
+            creative: {
+                title: "Creative Team",
+                members: [
+                    { name: "Priya Singh", role: "Design Head", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Kavya Joshi", role: "UI/UX Designer", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Riya Sharma", role: "Graphic Designer", image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Siddharth Roy", role: "Video Editor", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                ]
+            },
+            marketing: {
+                title: "Marketing Team",
+                members: [
+                    { name: "Rajesh Patel", role: "Marketing Head", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Neha Gupta", role: "Social Media Manager", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Aditya Singh", role: "Content Strategist", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
+                    { name: "Pooja Mehta", role: "Brand Ambassador", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+                ]
+            }
+        };
+
+        // Function to generate member card HTML
+        function generateMemberCard(member) {
+            return `
+                <div class="member-card">
+                    <div class="member-image">
+                        <img src="${member.image}" alt="${member.name}">
+                    </div>
+                    <h4 class="member-name">${member.name}</h4>
+                    <p class="member-role">${member.role}</p>
+                    <div class="member-social">
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">ig</a>
+                        <a href="#" class="social-icon">fb</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to generate all members view
+        function generateAllMembersView() {
+            let allMembers = [];
+            
+            // Collect all members from all categories
+            for (const [categoryId, categoryData] of Object.entries(memberData)) {
+                if (categoryId !== 'all' && categoryData.members) {
+                    allMembers = allMembers.concat(categoryData.members);
+                }
+            }
+            
+            const membersHTML = allMembers.map(member => `
+                <div class="all-member-card">
+                    <div class="all-member-image">
+                        <img src="${member.image}" alt="${member.name}">
+                    </div>
+                    <h4 class="all-member-name">${member.name}</h4>
+                    <p class="all-member-role">${member.role}</p>
+                </div>
+            `).join('');
+            
+            return `
+                <div class="category-content">
+                    <h3 class="category-title">All Team Members</h3>
+                    <div class="all-members-view">
+                        ${membersHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to generate category view
+        function generateCategoryView(categoryId) {
+            if (categoryId === 'all') {
+                return generateAllMembersView();
+            }
+            
+            const categoryData = memberData[categoryId];
+            const membersHTML = categoryData.members.map(member => generateMemberCard(member)).join('');
+            
+            return `
+                <div class="category-content">
+                    <h3 class="category-title">${categoryData.title}</h3>
+                    <div class="members-grid">
+                        ${membersHTML}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to generate category tabs
+        function generateCategoryTabs() {
+            let tabsHTML = '';
+            
+            for (const [categoryId, categoryData] of Object.entries(memberData)) {
+                const isActive = categoryId === 'all' ? 'active' : '';
+                const tabName = categoryId === 'all' ? 'All Members' : categoryData.title;
+                
+                tabsHTML += `
+                    <div class="category-tab ${isActive}" data-category="${categoryId}">
+                        ${tabName}
+                    </div>
+                `;
+            }
+            
+            return tabsHTML;
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabsContainer = document.getElementById('categoryTabs');
+            const displayContainer = document.getElementById('membersDisplay');
+            
+            // Generate tabs
+            tabsContainer.innerHTML = generateCategoryTabs();
+            
+            // Set initial content (All Members view)
+            displayContainer.innerHTML = generateCategoryView('all');
+            
+            // Add event listeners to tabs
+            const categoryTabs = document.querySelectorAll('.category-tab');
+            
+            categoryTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    categoryTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Update content
+                    const categoryId = this.dataset.category;
+                    displayContainer.innerHTML = generateCategoryView(categoryId);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

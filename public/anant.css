@@ -600,7 +600,7 @@ body {
 .LeadingMembers {
     min-height: 90vh;
     height: auto;
-    
+    margin-bottom: 40px;
     width: 100%;
     background-color: #eee7de;
     display: flex;

@@ -47,6 +47,8 @@
 
 
 
+
+
 	function scrollToEvents() {
 		const eventsSection = document.getElementById('events');
 		eventsSection.scrollIntoView({ behavior: 'smooth' });
@@ -61,7 +63,7 @@
 
 
 
-
+//gallary animation script
 
 	// Function to flip an image
 	function flipImage(imageId) {
@@ -75,7 +77,7 @@
 		image.classList.remove('flip');
 	}
 
-	// Hardcore flipping pattern
+	// Hardcore flipping pattern, brute force approach
 	function startFlipping() {
 		setTimeout(() => flipImage('image1'), 0 * 1000); // 0s
 		setTimeout(() => flipImage('image10'), 2 * 1000); // 2s
@@ -94,51 +96,48 @@
 	// Start the flipping pattern
 	startFlipping();
 
+//data and photos insertion in the gallary
 
 
 
 
 
+//card infinite slide animation;;
 
+const track = document.querySelector('.slider-track');
+let cards = Array.from(document.querySelectorAll('.card'));
+let cardWidth = cards[0].offsetWidth + 20;
 
+function updateSlideWidth() {
+	cardWidth = document.querySelector('.card').offsetWidth + 20;
+}
+window.addEventListener('resize', updateSlideWidth);
 
+function slide() {
+	// Clone the first card and add it to the end before transition
+	let firstCardClone = cards[0].cloneNode(true);
+	track.appendChild(firstCardClone);
+	cards.push(firstCardClone);
 
-	//card infinite slide animation;;
-
-	const track = document.querySelector('.slider-track');
-	let cards = Array.from(document.querySelectorAll('.card'));
-	let cardWidth = cards[0].offsetWidth + 20;
-
-	function updateSlideWidth() {
-		cardWidth = document.querySelector('.card').offsetWidth + 20;
-	}
-	window.addEventListener('resize', updateSlideWidth);
-
-	function slide() {
-		// Clone the first card and add it to the end before transition
-		let firstCardClone = cards[0].cloneNode(true);
-		track.appendChild(firstCardClone);
-		cards.push(firstCardClone);
-
-		// Start the sliding animation
-		track.style.transition = 'transform 0.5s ease-in-out';
-		track.style.transform = `translateX(${-cardWidth}px)`;
-
-		setTimeout(() => {
-			// Remove the first card after sliding and reset the position
-			track.style.transition = 'none';
-			track.removeChild(cards[0]);
-			track.style.transform = `translateX(0)`;
-			
-			// Update the cards array
-			cards.shift();
-		}, 500);
-	}
+	// Start the sliding animation
+	track.style.transition = 'transform 0.5s ease-in-out';
+	track.style.transform = `translateX(${-cardWidth}px)`;
 
 	setTimeout(() => {
-		slide();
-		setInterval(slide, 5000);
-	}, 1000); // Start first slide after 1 second
+		// Remove the first card after sliding and reset the position
+		track.style.transition = 'none';
+		track.removeChild(cards[0]);
+		track.style.transform = `translateX(0)`;
+		
+		// Update the cards array
+		cards.shift();
+	}, 500);
+}
+
+setTimeout(() => {
+	slide();
+	setInterval(slide, 5000);
+}, 1000); // Start first slide after 1 second
 
 
 
@@ -320,130 +319,128 @@
 
 
 
-// // Ongoing section js:-
+// Ongoing section js:-
 
-// 	document.addEventListener('DOMContentLoaded', function() {
-// 		const dataList = [
-// 			{
-// 			name: "Echoes Recruitment Drive",
-// 			// timing: "May 15-17, 2025",
-// 			timing: "June 1-8, 2025",
+	document.addEventListener('DOMContentLoaded', function() {
+		const dataList = [
+			{
+			name: "Echoes Recruitment Drive",
+			// timing: "May 15-17, 2025",
+			timing: "June 1-8, 2025",
 
-// 			venue: "Azim Premji Building, Board room",
-// 			summary: "Wanna Be a part of our community?? Join us today. Register for the interview process and become a member of the Echoes Club. We are looking for passionate individuals who want to make a difference.",
-// 			// visual: "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=1470&q=80"
-// 			visual: "assets/WhatsApp Image 2025-06-01 at 18.10.58.jpeg"
-// 			}
-// 		];
+			venue: "Azim Premji Building, Board room",
+			summary: "Wanna Be a part of our community?? Join us today. Register for the interview process and become a member of the Echoes Club. We are looking for passionate individuals who want to make a difference.",
+			// visual: "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=1470&q=80"
+			visual: "assets/WhatsApp Image 2025-06-01 at 18.10.58.jpeg"
+			}
+		];
 
-// 		const sliderDeck = document.getElementById('sliderDeck');
-// 		const dotNav = document.getElementById('dotNav');
-// 		const orbitContainer = document.getElementById('orbitContainer');
-// 		let current = 0;
+		const sliderDeck = document.getElementById('sliderDeck');
+		const dotNav = document.getElementById('dotNav');
+		const orbitContainer = document.getElementById('orbitContainer');
+		let current = 0;
 
-// 		function createOrbitingParticles() {
-// 			const hues = [
-// 			'rgba(90, 114, 131, 0.4)',
-// 			'rgba(160, 128, 164, 0.4)',
-// 			'rgba(201, 124, 147, 0.4)',
-// 			'rgba(237, 192, 162, 0.4)',
-// 			'rgba(71, 135, 151, 0.4)'
-// 			];
+		function createOrbitingParticles() {
+			const hues = [
+			'rgba(90, 114, 131, 0.4)',
+			'rgba(160, 128, 164, 0.4)',
+			'rgba(201, 124, 147, 0.4)',
+			'rgba(237, 192, 162, 0.4)',
+			'rgba(71, 135, 151, 0.4)'
+			];
 
-// 			for (let i = 0; i < 8; i++) {
-// 			const blob = document.createElement('div');
-// 			blob.className = 'glow-particle';
-// 			blob.style.width = blob.style.height = `${Math.random() * 300 + 100}px`;
-// 			blob.style.background = hues[Math.floor(Math.random() * hues.length)];
-// 			blob.style.left = `${Math.random() * 100}%`;
-// 			blob.style.top = `${Math.random() * 100}%`;
-// 			blob.style.animation = `float ${30 + Math.random() * 20}s ease-in-out ${Math.random() * 10}s infinite alternate`;
-// 			orbitContainer.appendChild(blob);
-// 			}
-// 		}
+			for (let i = 0; i < 8; i++) {
+			const blob = document.createElement('div');
+			blob.className = 'glow-particle';
+			blob.style.width = blob.style.height = `${Math.random() * 300 + 100}px`;
+			blob.style.background = hues[Math.floor(Math.random() * hues.length)];
+			blob.style.left = `${Math.random() * 100}%`;
+			blob.style.top = `${Math.random() * 100}%`;
+			blob.style.animation = `float ${30 + Math.random() * 20}s ease-in-out ${Math.random() * 10}s infinite alternate`;
+			orbitContainer.appendChild(blob);
+			}
+		}
 
-// 		function renderSlides() {
-// 			dataList.forEach((e, idx) => {
-// 			const panel = document.createElement('div');
-// 			panel.className = `highlight-box ${idx === 0 ? 'active' : ''}`;
-// 			panel.innerHTML = `
-// 				<div class="image-zone">
-// 				<img src="${e.visual}" alt="${e.name}" />
-// 				<div class="badge-status">Live</div>
-// 				</div>
-// 				<div class="info-segment">
-// 				<h3>${e.name}</h3>
-// 				<div class="meta-line">
-// 					<span><i class="far fa-calendar-alt"></i> ${e.timing}</span>
-// 					<span><i class="fas fa-map-marker-alt"></i> ${e.venue}</span>
-// 				</div>
-// 				<p class="summary">${e.summary}</p>
-// 				<div class="cta-area">
-// 					<a href="https://docs.google.com/forms/d/e/1FAIpQLSdMYe7ArFX6njyPqluUa5LEvjMM_6W3bbUwNgsH7jUPL4TiXg/viewform?usp=dialog" class="cta-button btn-primary">Join Now</a>   
-// 					<a href="#members" class="cta-button btn-outline">Details</a>     
-// 				</div>
-// 				</div>`;
-// 			sliderDeck.appendChild(panel);
+		function renderSlides() {
+			dataList.forEach((e, idx) => {
+			const panel = document.createElement('div');
+			panel.className = `highlight-box ${idx === 0 ? 'active' : ''}`;
+			panel.innerHTML = `
+				<div class="image-zone">
+				<img src="${e.visual}" alt="${e.name}" />
+				<div class="badge-status">Live</div>
+				</div>
+				<div class="info-segment">
+				<h3>${e.name}</h3>
+				<div class="meta-line">
+					<span><i class="far fa-calendar-alt"></i> ${e.timing}</span>
+					<span><i class="fas fa-map-marker-alt"></i> ${e.venue}</span>
+				</div>
+				<p class="summary">${e.summary}</p>
+				<div class="cta-area">
+					<a href="https://docs.google.com/forms/d/e/1FAIpQLSdMYe7ArFX6njyPqluUa5LEvjMM_6W3bbUwNgsH7jUPL4TiXg/viewform?usp=dialog" class="cta-button btn-primary">Join Now</a>   
+					<a href="#members" class="cta-button btn-outline">Details</a>     
+				</div>
+				</div>`;
+			sliderDeck.appendChild(panel);
 
-// 			const mark = document.createElement('div');
-// 			mark.className = `dot-unit ${idx === 0 ? 'active' : ''}`;
-// 			mark.dataset.slide = idx;
-// 			mark.onclick = () => moveTo(idx);
-// 			dotNav.appendChild(mark);
-// 			});
-// 		}
+			const mark = document.createElement('div');
+			mark.className = `dot-unit ${idx === 0 ? 'active' : ''}`;
+			mark.dataset.slide = idx;
+			mark.onclick = () => moveTo(idx);
+			dotNav.appendChild(mark);
+			});
+		}
 
-// 		function moveTo(newIndex) {
-// 			clearInterval(auto);
-// 			auto = setInterval(nextSlide, 5000);
+		function moveTo(newIndex) {
+			clearInterval(auto);
+			auto = setInterval(nextSlide, 5000);
 
-// 			const slides = document.querySelectorAll('.highlight-box');
-// 			const dots = document.querySelectorAll('.dot-unit');
+			const slides = document.querySelectorAll('.highlight-box');
+			const dots = document.querySelectorAll('.dot-unit');
 
-// 			slides[current].classList.remove('active');
-// 			slides[current].classList.add('previous');
-// 			slides[newIndex].classList.add('active');
-// 			slides[newIndex].classList.remove('previous');
+			slides[current].classList.remove('active');
+			slides[current].classList.add('previous');
+			slides[newIndex].classList.add('active');
+			slides[newIndex].classList.remove('previous');
 
-// 			dots[current].classList.remove('active');
-// 			dots[newIndex].classList.add('active');
+			dots[current].classList.remove('active');
+			dots[newIndex].classList.add('active');
 
-// 			current = newIndex;
+			current = newIndex;
 
-// 			setTimeout(() => {
-// 			slides.forEach(slide => !slide.classList.contains('active') && slide.classList.remove('previous'));
-// 			}, 800);
-// 		}
+			setTimeout(() => {
+			slides.forEach(slide => !slide.classList.contains('active') && slide.classList.remove('previous'));
+			}, 800);
+		}
 
-// 		function nextSlide() {
-// 			const next = (current + 1) % dataList.length;
-// 			moveTo(next);
-// 		}
+		function nextSlide() {
+			const next = (current + 1) % dataList.length;
+			moveTo(next);
+		}
 
-// 		let auto = setInterval(nextSlide, 5000);
-// 		createOrbitingParticles();
-// 		renderSlides();
+		let auto = setInterval(nextSlide, 5000);
+		createOrbitingParticles();
+		renderSlides();
 
-// 		// Tilt effect
-// 		setTimeout(() => {
-// 			const zones = document.querySelectorAll('.image-zone');
-// 			zones.forEach(zone => {
-// 			zone.addEventListener('mousemove', e => {
-// 				const rect = zone.getBoundingClientRect();
-// 				const offsetX = e.clientX - rect.left;
-// 				const offsetY = e.clientY - rect.top;
-// 				const rotateY = (offsetX - rect.width / 2) / 20;
-// 				const rotateX = (rect.height / 2 - offsetY) / 20;
-// 				zone.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-// 			});
-// 			zone.addEventListener('mouseleave', () => {
-// 				zone.style.transform = 'perspective(1000px)';
-// 			});
-// 			});
-// 		}, 500);
-// 		});
-
-
+		// Tilt effect
+		setTimeout(() => {
+			const zones = document.querySelectorAll('.image-zone');
+			zones.forEach(zone => {
+			zone.addEventListener('mousemove', e => {
+				const rect = zone.getBoundingClientRect();
+				const offsetX = e.clientX - rect.left;
+				const offsetY = e.clientY - rect.top;
+				const rotateY = (offsetX - rect.width / 2) / 20;
+				const rotateX = (rect.height / 2 - offsetY) / 20;
+				zone.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+			});
+			zone.addEventListener('mouseleave', () => {
+				zone.style.transform = 'perspective(1000px)';
+			});
+			});
+		}, 500);
+		});
 
 
 
@@ -452,6 +449,134 @@
 
 
 
+
+
+
+
+
+
+
+
+// events in the events sliding :
+// Event data stored in JavaScript
+        const eventsData = [
+            {
+                imageSrc: "assets/MANTHAN 2.0.webp",
+                title: "MANTHAN 2.0",
+                date: "20.11.2025",
+                description: "Manthan 2.0 brings students face-to-face with real-world product engineering and AI innovation, guided by an industry expert from EPAM Systems. Experience insights, interaction, and hands-on learning for the future of tech.",
+                detailsLink: " ",
+				status: "register-btn",  //remove when event is done
+				buttonText: "Register now" //update when event is done
+            },
+            {
+                imageSrc: "assets/MANTHAN.webp",
+                title: "MANTHAN",
+                date: "16.09.2025",
+                description: "Manthan 2025 brings together alumni, industry experts, and students for an inspiring day of learning and connection. Celebrate growth, knowledge, and the legacy of Echoes MIET.",
+                detailsLink: "https://drive.google.com/drive/folders/12siAKC9tvQ_dRvCXas097vvEqsd0mlaB", 
+				buttonText: "View Details"
+            },
+            {
+                imageSrc: "assets/WhatsApp Image 2025-06-01 at 18.10.58.jpeg",
+                title: "Echoes Recruitment Drive",
+                date: "1.06.2025 - 8.06.2025",
+                description: "Dream. Dare. Do. Ready to join MIET's only tech tribe? Be part of Echoes—where ideas turn into impact. Register for your interview today!",
+                detailsLink: "https://drive.google.com/drive/u/2/folders/15D69GSpQNiGI0RDyO8TZDb2CGHFdn2-s",
+				buttonText: "View Details"
+            },
+            {
+                imageSrc: "assets/hackathonHavoc.webp",
+                title: "Hackathon Havoc 2.0",
+                date: "10.04.2025 - 11.04.2025",
+                description: "Two days. Endless ideas. A hackathon built for 1st-years to code, create, and compete. Prizes, recognition, and teamwork await at MIET.",
+                detailsLink: "https://drive.google.com/drive/folders/11OZ_G1ldeyiqYLZbI8W9WqnxBIVEuxQj",
+				buttonText: "View Details"
+            },
+            {
+                imageSrc: "assets/mlworkshop.webp",
+                title: "From Code to Creation– AI & ML Unlocked",
+                date: "01.04.2025",
+                description: "Harsh Tyagi led a workshop diving into AI and ML with Python. A practical session blending fundamentals with hands-on exploration for curious minds.",
+                detailsLink: "https://drive.google.com/drive/folders/10SRfxSPyaQzy1PRVL2yPDBVQoUfJiNgX",
+				buttonText: "View Details"
+            },
+            {
+                imageSrc: "assets/CyberWorkshop.webp",
+                title: "Decrypting the Dark: Beyond the Web",
+                date: "28.02.2025",
+                description: "An eye-opening webinar with Mudit Bansal, where students explored the hidden world of the Dark Web, modern cybersecurity, and ethical hacking careers.",
+                detailsLink: "https://drive.google.com/drive/folders/1-3lzn2kwSPEOmvWt3q60mWRC0L2h9-tv",
+				buttonText: "View Details"
+            },
+            {
+                imageSrc: "assets/industrial.webp",
+                title: "Echoes @ HCL, Noida",
+                date: "13.12.2024",
+                description: "An enriching industrial visit where students explored HCL's innovations, connected with professionals, and learned about the real-world tech landscape.",
+                detailsLink: "https://drive.google.com/drive/folders/1X-aZc7D6l7wmDz_IOIR5BPuP-5d9KG-m",
+				buttonText: "View Details"
+            },
+            {
+                imageSrc: "assets/event-4.webp",
+                title: "Exploring AI: Guest Lecture",
+                date: "13.12.2024",
+                description: "An engaging session by Dr. Manoj Kumar Gupta on 'AI Fundamentals and Applications,' organized in collaboration with Echoes MIET & CSI MIET.",
+                detailsLink: "https://drive.google.com/drive/folders/1aeJ9_WYndK7ci1DLGzKH9fizoyDj6dy6",
+				buttonText: "View Details"
+            },
+            {
+                imageSrc: "assets/disha3.webp",
+                title: "Disha 3.0",
+                date: "14.11.2024",
+                description: "Vanshika Jain shared insights on Full Stack Development and Cloud Technologies, wrapping up with a fun Q&A and interactive games with prizes.",
+                detailsLink: "https://drive.google.com/drive/folders/1UWbn3S2pbmTngzJ4FaHR9dratbZn8VVd",
+				buttonText: "View Details"
+            },
+            {
+                imageSrc: "assets/disha2.webp",
+                title: "Disha 2.0",
+                date: "24.10.2024",
+                description: "Disha 2.0 featured Chirag Bansal, sharing insights on AWS and its career opportunities.",
+                detailsLink: "https://drive.google.com/drive/folders/1Yz2-foSewZs5d4IxEJEm56-3GrYp9Jfr",
+				buttonText: "View Details"
+            },
+            {
+                imageSrc: "assets/disha.webp",
+                title: "Disha 1.0",
+                date: "25.09.2024",
+                description: "Capt. Arun Pundir delivered a powerful session on mastering coding skills and exploring career opportunities in both tech and defense sectors.",
+                detailsLink: "https://drive.google.com/drive/folders/1Sj4r9MgtLSWPf0NbzAkJ-qOY21RBBIs6",
+				buttonText: "View Details"
+            }
+        ];
+
+        // Function to create event boxes
+        function createEventBoxes() {
+            const container = document.getElementById('events-container');
+            
+            eventsData.forEach(event => {
+                const eventBox = document.createElement('div');
+                eventBox.className = 'event-box';
+                
+                eventBox.innerHTML = `
+                    <div class="event-image">
+                        <img src="${event.imageSrc}" alt="Event Poster">
+                    </div>
+                    <div class="event-content">
+                        <h3>${event.title}</h3>
+                        <p class="date">${event.date}</p>
+                        <p class="eventdetailsineventsection">${event.description}</p>
+                    </div>
+                    <button class="viewdetails-btn ${event.status}" onclick="window.location.href='${event.detailsLink}'">${event.buttonText}</button>
+                `;
+                
+                container.appendChild(eventBox);
+            });
+        }
+
+        // Initialize event boxes when page loads
+        document.addEventListener('DOMContentLoaded', createEventBoxes);
 
 
 

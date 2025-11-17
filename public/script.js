@@ -7,6 +7,8 @@
 		}
 	}
 
+
+	//moving left and right by buttons
 	document.addEventListener("DOMContentLoaded", function () {
 		const moveLeft = document.getElementById('moveLeft');
 		const moveRight = document.getElementById('moveRight');
@@ -49,10 +51,6 @@
 
 
 
-	function scrollToEvents() {
-		const eventsSection = document.getElementById('events');
-		eventsSection.scrollIntoView({ behavior: 'smooth' });
-	}
 
 
 
@@ -150,8 +148,6 @@ setTimeout(() => {
 
 	// pause vdo on scroll
 
-
-
 	document.addEventListener("DOMContentLoaded", function () {
 		const eventsVideo = document.getElementById("events-video");
 		const eventsSection = document.getElementById("events");
@@ -172,6 +168,8 @@ setTimeout(() => {
 
 
 
+
+	
 	// Function to handle the testimonials slider
 
 	document.addEventListener('DOMContentLoaded', function() {
@@ -318,129 +316,6 @@ setTimeout(() => {
 
 
 
-
-// Ongoing section js:-
-
-	document.addEventListener('DOMContentLoaded', function() {
-		const dataList = [
-			{
-			name: "Echoes Recruitment Drive",
-			// timing: "May 15-17, 2025",
-			timing: "June 1-8, 2025",
-
-			venue: "Azim Premji Building, Board room",
-			summary: "Wanna Be a part of our community?? Join us today. Register for the interview process and become a member of the Echoes Club. We are looking for passionate individuals who want to make a difference.",
-			// visual: "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=1470&q=80"
-			visual: "assets/WhatsApp Image 2025-06-01 at 18.10.58.jpeg"
-			}
-		];
-
-		const sliderDeck = document.getElementById('sliderDeck');
-		const dotNav = document.getElementById('dotNav');
-		const orbitContainer = document.getElementById('orbitContainer');
-		let current = 0;
-
-		function createOrbitingParticles() {
-			const hues = [
-			'rgba(90, 114, 131, 0.4)',
-			'rgba(160, 128, 164, 0.4)',
-			'rgba(201, 124, 147, 0.4)',
-			'rgba(237, 192, 162, 0.4)',
-			'rgba(71, 135, 151, 0.4)'
-			];
-
-			for (let i = 0; i < 8; i++) {
-			const blob = document.createElement('div');
-			blob.className = 'glow-particle';
-			blob.style.width = blob.style.height = `${Math.random() * 300 + 100}px`;
-			blob.style.background = hues[Math.floor(Math.random() * hues.length)];
-			blob.style.left = `${Math.random() * 100}%`;
-			blob.style.top = `${Math.random() * 100}%`;
-			blob.style.animation = `float ${30 + Math.random() * 20}s ease-in-out ${Math.random() * 10}s infinite alternate`;
-			orbitContainer.appendChild(blob);
-			}
-		}
-
-		function renderSlides() {
-			dataList.forEach((e, idx) => {
-			const panel = document.createElement('div');
-			panel.className = `highlight-box ${idx === 0 ? 'active' : ''}`;
-			panel.innerHTML = `
-				<div class="image-zone">
-				<img src="${e.visual}" alt="${e.name}" />
-				<div class="badge-status">Live</div>
-				</div>
-				<div class="info-segment">
-				<h3>${e.name}</h3>
-				<div class="meta-line">
-					<span><i class="far fa-calendar-alt"></i> ${e.timing}</span>
-					<span><i class="fas fa-map-marker-alt"></i> ${e.venue}</span>
-				</div>
-				<p class="summary">${e.summary}</p>
-				<div class="cta-area">
-					<a href="https://docs.google.com/forms/d/e/1FAIpQLSdMYe7ArFX6njyPqluUa5LEvjMM_6W3bbUwNgsH7jUPL4TiXg/viewform?usp=dialog" class="cta-button btn-primary">Join Now</a>   
-					<a href="#members" class="cta-button btn-outline">Details</a>     
-				</div>
-				</div>`;
-			sliderDeck.appendChild(panel);
-
-			const mark = document.createElement('div');
-			mark.className = `dot-unit ${idx === 0 ? 'active' : ''}`;
-			mark.dataset.slide = idx;
-			mark.onclick = () => moveTo(idx);
-			dotNav.appendChild(mark);
-			});
-		}
-
-		function moveTo(newIndex) {
-			clearInterval(auto);
-			auto = setInterval(nextSlide, 5000);
-
-			const slides = document.querySelectorAll('.highlight-box');
-			const dots = document.querySelectorAll('.dot-unit');
-
-			slides[current].classList.remove('active');
-			slides[current].classList.add('previous');
-			slides[newIndex].classList.add('active');
-			slides[newIndex].classList.remove('previous');
-
-			dots[current].classList.remove('active');
-			dots[newIndex].classList.add('active');
-
-			current = newIndex;
-
-			setTimeout(() => {
-			slides.forEach(slide => !slide.classList.contains('active') && slide.classList.remove('previous'));
-			}, 800);
-		}
-
-		function nextSlide() {
-			const next = (current + 1) % dataList.length;
-			moveTo(next);
-		}
-
-		let auto = setInterval(nextSlide, 5000);
-		createOrbitingParticles();
-		renderSlides();
-
-		// Tilt effect
-		setTimeout(() => {
-			const zones = document.querySelectorAll('.image-zone');
-			zones.forEach(zone => {
-			zone.addEventListener('mousemove', e => {
-				const rect = zone.getBoundingClientRect();
-				const offsetX = e.clientX - rect.left;
-				const offsetY = e.clientY - rect.top;
-				const rotateY = (offsetX - rect.width / 2) / 20;
-				const rotateX = (rect.height / 2 - offsetY) / 20;
-				zone.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-			});
-			zone.addEventListener('mouseleave', () => {
-				zone.style.transform = 'perspective(1000px)';
-			});
-			});
-		}, 500);
-		});
 
 
 

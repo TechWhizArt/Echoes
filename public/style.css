@@ -7,7 +7,6 @@
 }
 section {
     content-visibility: auto;
-    
 }
 
 body {
@@ -17,11 +16,8 @@ body {
     font-smooth: always;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    
   }
 
-  
 html{
     scroll-behavior:smooth;
     max-width:100%;
@@ -101,6 +97,7 @@ html{
         text-align: left;
         padding-top: 10px;
         
+        
     }
     .nav-links a { display: block; padding: 15px; }
     .menu-icon { display: block; }
@@ -164,7 +161,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('assets/Untitled-design.webp');
+
     background-size: cover;
     overflow:hidden;
     position: relative;
@@ -222,9 +219,7 @@ section {
 /* Responsive Design */
 @media screen and (max-width: 768px) {
     #home {
-        background-image: url('assets/phone.webp');
         background-size: cover;
-
     }
     .home-container {
         flex-direction: column;
@@ -1012,6 +1007,12 @@ section {
     }
       
 }
+@media (max-width: 550px) {
+    #gallery{
+        max-width: 90%;
+        justify-self:center;
+    }
+}
 
 .gallery-header h1 {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
@@ -1736,9 +1737,13 @@ position: absolute; /* Still needed for animation */
   /* Responsive Adjustments */
 
   @media (max-width: 768px) {
+    .big-box:hover {
+        transform:none;
 
+    }
     .big-box {
-      flex-direction: column; 
+    flex-direction: column; 
+    box-shadow: 0 8px 16px #0000004d;
     }
     .social-box a {
       font-size: 18px; 

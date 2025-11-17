@@ -28,9 +28,14 @@
 </head>
 <body class="home">
 
+
+
+
+
+
+
+
     <!-- Navbar done-->
-
-
     <div class="navbar">
         <div class="logo">
             <a href="#home">
@@ -51,20 +56,22 @@
     </div>
 
 
+
+
+
+    <!-- home section -->
     <section id="home">
         
    <div class="video-background">
-            <video autoplay muted loop id="events-video" poster="office lawnch.mp4">
-                <source src="https://videos.pexels.com/video-files/5207408/5207408-hd_1920_1080_25fps.mp4" type="video/mp4">
+        <video autoplay muted loop id="events-video" poster="office lawnch.mp4">
+            <source src="https://videos.pexels.com/video-files/5207408/5207408-hd_1920_1080_25fps.mp4" type="video/mp4">
 
-                Your browser does not support the video tag.
-            </video>
-        </div>
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
 
-            <!-- Right Section: Background Image -->
-            
-        </div>
+
     </section>
     
 
@@ -79,21 +86,6 @@
 
 
     
-
-<!--Ongoing Event Section done-->
-
-<!-- <section id="event-showcase">
-    <div class="orbiting-particles" id="orbitContainer"></div>
-    <h2>Current Highlights</h2>
-    <div class="slider-wrapper" id="sliderDeck"></div>
-    <div class="dot-track" id="dotNav"></div>
-  </section>
-
-
- -->
-
-
-
 
 
 
@@ -107,46 +99,45 @@
 
 <!-- Events Section done -->
 
-    
-    <section id="events" class="events-section">
-        <div class="video-background">
-            <video autoplay muted loop id="events-video" poster="assets/falling leaves.mp4">
-                <source src="" type="video/mp4">
 
-                Your browser does not support the video tag.
-            </video>
+<section id="events" class="events-section">
+    <div class="video-background">
+        <video autoplay muted loop id="events-video" poster="assets/falling leaves.mp4">
+            <source src="" type="video/mp4">
+
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <h1>Featured Events</h1>
+    <div class="event-content-box">
+
+
+    <!-- Demo structure for the event box -->
+    <!-- <div class="event-box">
+        <div class="event-image">
+            <img src="" alt="Event Poster">
         </div>
-        <h1>Featured Events</h1>
-        <div class="event-content-box">
-
-
-        <!-- Demo structure for the event box -->
-
-        <!-- <div class="event-box">
-            <div class="event-image">
-                <img src="" alt="Event Poster">
-            </div>
-            <div class="event-content">
-                <h3>Upcomming Event</h3>
-                <p>Echoes MIET is organizing a new event. Stay tuned for updates and register once registration opens.</p>
-                
-            </div>
-            <button class="viewdetails-btn register-btn" onclick="window.location.href='#event';" >Registration</button>
-        </div> -->
-
-        <!-- Event Boxes -->
-
-        <div class="events-container" id="events-container">
-        <!-- Event boxes will be dynamically inserted here -->
+        <div class="event-content">
+            <h3>Upcomming Event</h3>
+            <p>Echoes MIET is organizing a new event. Stay tuned for updates and register once registration opens.</p>
+            
         </div>
+        <button class="viewdetails-btn register-btn" onclick="window.location.href='#event';" >Registration</button>
+    </div> -->
+
+    <!-- Event Boxes -->
+
+    <div class="events-container" id="events-container">
+    <!-- Event boxes will be dynamically inserted here from js -->
+    </div>
 
 
-            <!-- Replace your existing arrow buttons with these -->
-        <button class="move-arrow left-arrow" id="moveLeft" aria-label="Previous events"></button>
-        <button class="move-arrow right-arrow" id="moveRight" aria-label="Next events"></button>
-        </div>
-        <p style="text-align: left; margin-left:50px;">Pro tip: Use your college email to access the Photos folder.</p>
-    </section>
+        <!-- Arrow buttons to navigate -->
+    <button class="move-arrow left-arrow" id="moveLeft" aria-label="Previous events"></button>
+    <button class="move-arrow right-arrow" id="moveRight" aria-label="Next events"></button>
+    </div>
+    <p style="text-align: left; margin-left:50px;">Pro tip: Use your college email to access the Photos folder.</p>
+</section>
 
 
 
@@ -154,11 +145,11 @@
 
 
 
-    <hr style="width: 80%; margin: 0 auto; margin-top: 50px; border: 1px solid #f2f2f2;">
+<hr style="width: 80%; margin: 0 auto; margin-top: 50px; border: 1px solid #f2f2f2;">
 
 
 
-
+<!-- gallery, the images are inserted in html itself, but js is recommended in further time -->
 
      <section id="gallery">
         <div class="gallery-header">
@@ -457,37 +448,37 @@
 
 
 
-    <section id="contact"> 
-            <div class="contact-content">
-                <!-- Contact Details -->
-                <div class="contact-details">
-                    <h3>Contact Us</h3>
-                    <p><strong>Email:</strong><a href="mailto:echoesofcse@miet.ac.in"> echoesofcse@miet.ac.in</a></p>
-                    
-                    <p><strong>Phone:</strong> <a href="">+91 bla bla bla</a></p>
-                    
-                    <p><strong>Address:</strong> M-block, MIET, NH-58, MEERUT</p>
-                    <br>
-                    <br>
-                    <h3>Connect with us..</h3>
-                    <div class="icons">
-                        <a href="https://www.facebook.com/p/Echoes-MIET-61566290634655/"><img src="assets/fb_color_upscayl_4x_digital-art-4x.webp" alt="Facebook"></a>
-                        <a href="https://x.com/Echoes_MIET"><img src="assets/X_icon_2.svg.webp" alt="X"></a>
-                        <a href="https://www.instagram.com/echoes_miet"><img src="assets/insta_color_upscayl_4x_digital-art-4x.webp" alt="Instagram"></a>
-                        <a href="https://www.linkedin.com/company/echoes-miet/"><img src="assets/linkedin_color_upscayl_4x_digital-art-4x.webp" alt="LinkedIn"></a>
-                        <a href="https://chat.whatsapp.com/GALFsiK782O6XidEtD9LFB"><img src="assets/pngtree-whatsapp-icon-png-image_6315990.webp" alt="YouTube"></a>
-                    </div>
-                </div>
+<section id="contact"> 
+        <div class="contact-content">
+            <!-- Contact Details -->
+            <div class="contact-details">
+                <h3>Contact Us</h3>
+                <p><strong>Email:</strong><a href="mailto:echoesofcse@miet.ac.in"> echoesofcse@miet.ac.in</a></p>
                 
-                <!-- Embedded Map -->
-                <div class="map">
-                    <h3>Find Us</h3>
-                    
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3490.483119027554!2d77.63842827550401!3d28.973051668535877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c668fdea4d87f%3A0x8795def814a486e7!2sMeerut%20Institute%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1738772531587!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p><strong>Phone:</strong> <a href="">+91 bla bla bla</a></p>
+                
+                <p><strong>Address:</strong> M-block, MIET, NH-58, MEERUT</p>
+                <br>
+                <br>
+                <h3>Connect with us..</h3>
+                <div class="icons">
+                    <a href="https://www.facebook.com/p/Echoes-MIET-61566290634655/"><img src="assets/fb_color_upscayl_4x_digital-art-4x.webp" alt="Facebook"></a>
+                    <a href="https://x.com/Echoes_MIET"><img src="assets/X_icon_2.svg.webp" alt="X"></a>
+                    <a href="https://www.instagram.com/echoes_miet"><img src="assets/insta_color_upscayl_4x_digital-art-4x.webp" alt="Instagram"></a>
+                    <a href="https://www.linkedin.com/company/echoes-miet/"><img src="assets/linkedin_color_upscayl_4x_digital-art-4x.webp" alt="LinkedIn"></a>
+                    <a href="https://chat.whatsapp.com/GALFsiK782O6XidEtD9LFB"><img src="assets/pngtree-whatsapp-icon-png-image_6315990.webp" alt="YouTube"></a>
                 </div>
             </div>
-    
-    </section>
+            
+            <!-- Embedded Map -->
+            <div class="map">
+                <h3>Find Us</h3>
+                
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3574254.8751393803!2d73.15858132499996!3d28.97304699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390c668fdea4d87f%3A0x8795def814a486e7!2sMeerut%20Institute%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1763401499349!5m2!1sen!2sin" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+</section>
 
 </body>
 </html>

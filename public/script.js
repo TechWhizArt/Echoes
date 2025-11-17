@@ -465,7 +465,7 @@ setTimeout(() => {
                 title: "MANTHAN 2.0",
                 date: "20.11.2025",
                 description: "Manthan 2.0 brings students face-to-face with real-world product engineering and AI innovation, guided by an industry expert from EPAM Systems. Experience insights, interaction, and hands-on learning for the future of tech.",
-                detailsLink: " ",
+                detailsLink: "https://www.commudle.com/communities/echoes-miet/events/manthan-2-0",
 				status: "register-btn",  //remove when event is done
 				buttonText: "Register now" //update when event is done
             },
@@ -474,7 +474,7 @@ setTimeout(() => {
                 title: "MANTHAN",
                 date: "16.09.2025",
                 description: "Manthan 2025 brings together alumni, industry experts, and students for an inspiring day of learning and connection. Celebrate growth, knowledge, and the legacy of Echoes MIET.",
-                detailsLink: "https://drive.google.com/drive/folders/12siAKC9tvQ_dRvCXas097vvEqsd0mlaB", 
+                detailsLink: "https://drive.google.com/drive/folders/1w5TLWPqlWyDTyLxoTVhhPZ9p0Ukamo_a", 
 				buttonText: "View Details"
             },
             {

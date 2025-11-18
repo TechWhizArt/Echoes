@@ -2,8 +2,7 @@
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
-    max-width:100%;
-    
+    max-width:100%; 
 }
 
 body {
@@ -31,7 +30,7 @@ body {
     text-align: center;
     padding: 50px 20px;
     height:auto;
-    min-height: 90vh;
+    min-height: 100vh;
 
     width:100%;
     
@@ -904,17 +903,21 @@ body {
 /* idk why, but when i add this same content in above .presiImage it is giving unstable output */
 
 
-        .presiImages {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.presiImages {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        .imageDiv:hover .presiImages {
-            transform: scale(1.1);
-        }
+.imageDiv:hover .presiImages {
+    transform: scale(1.1);
+}
 
       
+
+
+
+
 
 
 

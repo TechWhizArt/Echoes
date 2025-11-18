@@ -2,8 +2,7 @@
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
-    max-width:100%;
-    
+    max-width:100%; 
 }
 
 body {
@@ -27,47 +26,31 @@ body {
 
 
 /* section one, taecher section */
+.team-section {
+    text-align: center;
+    padding: 50px 20px;
+    height:auto;
+    min-height: 90vh;
 
-        body {
-            background: rgb(241, 140, 140);
-            margin: 0;
-            padding: 0;
-            font-family: "Poppins", Arial, sans-serif;
-        }
+    width:100%;
+    
+}
 
-        /* BACKGROUND WATERMARK (OPTIONAL) */
-        .team-section {
-            background-image: url('YOUR_IMAGE_LINK_HERE'); 
-            background-size: 600px;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-attachment: fixed;
-            padding: 50px 20px;
-        }
+.team-section h1 {
+    font-size: 77px;
+    margin-bottom: 40px;
+    margin-top: 0;
+    color: #1b1b1b;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
-        /* HEADING */
-        .team-section h1 {
-            text-align: center;
-            font-size: 38px;
-            color: black;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 45px;
-            animation: fadeDown 1s ease-in-out;
-        }
-
-        @keyframes fadeDown {
-            from {opacity: 0; transform: translateY(-30px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-
-        /* FLEX CONTAINER */
-        .team-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items:flex-start;
+}
 
         /* TEAM MEMBER CARD (Modern Soft Grey) */
         .team-member {
@@ -898,17 +881,21 @@ body {
 /* idk why, but when i add this same content in above .presiImage it is giving unstable output */
 
 
-        .presiImages {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.presiImages {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        .imageDiv:hover .presiImages {
-            transform: scale(1.1);
-        }
+.imageDiv:hover .presiImages {
+    transform: scale(1.1);
+}
 
       
+
+
+
+
 
 
 

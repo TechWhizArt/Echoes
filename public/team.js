@@ -16,7 +16,7 @@ const memberData = {
             
             { name: "Anant Kumar", image: "Images/Juniors/Anant Kumar.webp", github: "https://github.com/AnantKumar-08" },
             { name: "Pritika Singh", image: "Images/Juniors/Pritika Singh.webp", linkedin: "linkedin.com/in/pritika-singh-b4142830b", github: "https://github.com/Pritika2512" },
-            { name: "Shubham Malik ", image: "Images/Juniors/", linkedin: "https://www.linkedin.com/in/shubham-malik-73b990308?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github: "https://github.com/Shubham20847" },
+            { name: "Shubham Malik ", image: "Images/Juniors/shubham.webp", linkedin: "https://www.linkedin.com/in/shubham-malik-73b990308?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github: "https://github.com/Shubham20847" },
             { name: "Vishvdeep Pundir", image: "Images/Juniors/Vishvdeep.webp", linkedin: "https://www.linkedin.com/in/vishvdeep-pundir-5a783a34b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github: "https://github.com/Vishvdeeprajput" },
             { name: "Harshit Rana", image: "Images/Juniors/Harshit Rana.webp", linkedin: "https://www.linkedin.com/in/harshit-rana-041ab5284?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", github: "" }
         ]

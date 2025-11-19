@@ -24,7 +24,6 @@ const memberData = {
         title: "Creative Team",
         members: [
             { name: "Yuwansh rathi", image: "Images/Juniors/yuwansh rathi.webp", linkedin: "https://www.google.com" },
-            { name: "Aanya Sharma", image: "Images/Juniors/AANYA SHARMA.webp", linkedin: "https://www.linkedin.com/in/aanya-sharma-940a17325?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
             { name: "Anshika Sharma", image: "Images/Juniors/Anshika Sharma.webp", linkedin: "https://www.linkedin.com/in/anshika-sharma-a746b3378?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
             { name: "Arpita", image: "Images/Juniors/ARPITA.webp", linkedin: "https://www.linkedin.com/in/arpita-narendra-000b2b34a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
         ]
@@ -57,6 +56,7 @@ const memberData = {
         title: "Social Media And Content Team",
         members: [
             { name: "Divyanshi", image: "Images/Juniors/DIVYANSHI SHARMA.webp", linkedin: "https://www.linkedin.com/in/divyanshi-25a605324" },
+            { name: "Aanya Sharma", image: "Images/Juniors/AANYA SHARMA.webp", linkedin: "https://www.linkedin.com/in/aanya-sharma-940a17325?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
             { name: "Priyanshi Garg", image: "Images/Juniors/Priyanshi Garg.webp", linkedin: "https://www.linkedin.com/in/priyanshi-garg-4197aa324?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" }
         ]
     },
